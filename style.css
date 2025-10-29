@@ -929,18 +929,20 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 30px;
 }
 
 .destino-card {
   flex: 1 1 calc(50% - 30px);
-  min-width: 300px;
+  min-width: 280px;
   max-width: 500px;
 }
 
-/* For 3 columns on large screens */
+/* For 4 columns on large screens (desktop) */
 @media (min-width: 1200px) {
   .destino-card {
     flex: 1 1 calc(25% - 30px);
+    max-width: none; /* Remove max-width to allow 4 cards in a row */
   }
 }
 
