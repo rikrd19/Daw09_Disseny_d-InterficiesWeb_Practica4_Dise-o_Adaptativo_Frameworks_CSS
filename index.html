@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre Catalunya - Turismo cultural y experiencias únicas en el corazón del Mediterráneo">
+    <title>Descubre Catalunya - Turismo Cultural</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <!-- Decorative banner stripes -->
+    <img src="lineasBandera.png" alt="Franjas decorativas de la bandera catalana" class="banner-franjas">
+    
+    <!-- ========================================
+         SECTION 1: HEADER
+         Navigation and branding
+    ========================================= -->
+    <header class="site-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo-wrapper">
+                <img src="generCatalu.png" alt="Logo Catalunya Turismo" class="logo">
+                <span class="logo-text">Catalunya</span>
+            </div>
+
+            <!-- Main Navigation -->
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#historia">Historia</a></li>
+                    <li><a href="#destinos">Destinos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Language selector (optional) -->
+            <button type="button" class="btn-language">ES / CAT</button>
+        </div>
+    </header>
+
+    <!-- ========================================
+         SECTION 2: HERO
+         Main banner with primary CTA
+    ========================================= -->
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1 class="hero-title">Descubre Catalunya</h1>
+                <p class="hero-subtitle">Donde la historia se encuentra con el Mediterráneo</p>
+                
+                <!-- Primary CTA - Soft engagement -->
+                <a href="#destinos" class="btn btn-primary">Explorar Destinos</a>
+            </div>
+        </div>
+        <!-- Background image will be set via CSS -->
+    </section>
+
+    <!-- ========================================
+         MAIN CONTENT WRAPPER
+    ========================================= -->
+    <main class="main-content">
+
+        <!-- ========================================
+             SECTION 3: HISTORICAL OVERVIEW
+             Cultural and historical content
+        ========================================= -->
+        <section id="historia" class="historia-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Tierra de Historia y Tradición</h2>
+                    <p class="section-intro">Catalunya no es solo un destino, es un viaje a través de siglos de historia, cultura y tradición mediterránea.</p>
+                </div>
+
+                <div class="historia-content">
+                    <!-- Historical text column -->
+                    <article class="historia-text">
+                        <h3>La Senyera: Símbolo de una Nación</h3>
+                        <p>La bandera de Catalunya, también conocida como <strong>senyera</strong>, fue adoptada como bandera oficial de la comunidad autónoma de Catalunya en el Estatuto de Autonomía de 1979. Sus cuatro barras rojas sobre fondo dorado tienen un origen que se remonta a la Edad Media.</p>
+
+                        <p>Con el paso del tiempo, el emblema de los reyes de la <em>Corona de Aragón</em> pasó a identificarse con los territorios que gobernaban. Su identificación con el condado de Barcelona y, por extensión, con el <em>Principado de Catalunya</em>, parece originarse también en tiempos de Pedro el Ceremonioso y se prolonga en los siglos posteriores.</p>
+
+                        <blockquote class="historia-quote">
+                            <p><em>"El corazón catalán late en estos colores"</em></p>
+                        </blockquote>
+
+                        <p>Ya a mediados del siglo XVI, el historiador valenciano Pere Antoni Beuter narra la leyenda de <em>Wifredo el Velloso</em> y los dedos de sangre en su Crónica General de España. Posteriormente, en un poema de 1644, Francesc Fontanella aludía a las barras:</p>
+
+                        <blockquote class="poema-historico">
+                            <p><em>"Mirau també a monsiur de Fontanella<br>
+                            surcar ab altre barca esta ribera<br>
+                            y tremolar a l'ayre altra bandera,<br>
+                            perquè se aclama en remota zona<br>
+                            barras de Catalunya y Barcelona."</em></p>
+                        </blockquote>
+                    </article>
+
+                    <!-- Visual content column -->
+                    <aside class="historia-visual">
+                        <div class="historia-images">
+                            <img src="BanderCatal.png" alt="Bandera de Catalunya - La Senyera" class="img-responsive">
+                            <img src="Mapa.png" alt="Mapa histórico de Catalunya" class="img-responsive">
+                        </div>
+
+                        <!-- Quick facts cards -->
+                        <div class="historia-facts">
+                            <div class="fact-card">
+                                <h4>🏛️ Patrimonio</h4>
+                                <p>9 sitios UNESCO</p>
+                            </div>
+                            <div class="fact-card">
+                                <h4>🎨 Cultura</h4>
+                                <p>Cuna del modernismo</p>
+                            </div>
+                            <div class="fact-card">
+                                <h4>🌊 Costa</h4>
+                                <p>580 km de litoral</p>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+
+                <!-- Provinces table -->
+                <div class="provincias-wrapper">
+                    <h3>Las Cuatro Provincias de Catalunya</h3>
+                    <table class="tabla-provincias">
+                        <caption>Información básica sobre las provincias catalanas</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Provincia</th>
+                                <th scope="col">Capital</th>
+                                <th scope="col">Población</th>
+                                <th scope="col">Superficie (km²)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Barcelona</td>
+                                <td>Barcelona</td>
+                                <td>5.704.697</td>
+                                <td>7.726</td>
+                            </tr>
+                            <tr>
+                                <td>Girona</td>
+                                <td>Girona</td>
+                                <td>786.596</td>
+                                <td>5.910</td>
+                            </tr>
+                            <tr>
+                                <td>Lleida</td>
+                                <td>Lleida</td>
+                                <td>439.727</td>
+                                <td>12.150</td>
+                            </tr>
+                            <tr>
+                                <td>Tarragona</td>
+                                <td>Tarragona</td>
+                                <td>822.309</td>
+                                <td>6.303</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION 4: DESTINATIONS GRID
+             Main tourism content with cards
+        ========================================= -->
+        <section id="destinos" class="destinos-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Explora Nuestros Destinos</h2>
+                    <p class="section-intro">De la vibrante Barcelona a las playas de la Costa Brava, cada rincón de Catalunya cuenta una historia única.</p>
+                </div>
+
+                <!-- Grid/Flex container for destination cards -->
+                <div class="destinos-grid">
+                    
+                    <!-- Card 1: Barcelona -->
+                    <article class="destino-card">
+                        <div class="card-image">
+                            <!-- Placeholder - Replace with actual image -->
+                            <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800&h=600&fit=crop" 
+                                 alt="Barcelona - Sagrada Familia" 
+                                 loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Barcelona</h3>
+                            <p class="card-description">Descubre la obra maestra de Gaudí y el modernismo catalán. La Sagrada Familia, Park Güell y la arquitectura que cambió el mundo.</p>
+                            <ul class="card-features">
+                                <li>🏛️ Sagrada Familia</li>
+                                <li>🎨 Park Güell</li>
+                                <li>🏖️ Playas urbanas</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: Costa Brava -->
+                    <article class="destino-card">
+                        <div class="card-image">
+                            <!-- Placeholder - Replace with actual image -->
+                            <img src="https://images.unsplash.com/photo-1562883676-8c7feb83f09b?w=800&h=600&fit=crop" 
+                                 alt="Costa Brava - Playas mediterráneas" 
+                                 loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Costa Brava</h3>
+                            <p class="card-description">Calas de agua cristalina, pueblos con encanto y la esencia del Mediterráneo. Un paraíso para los amantes del mar y la naturaleza.</p>
+                            <ul class="card-features">
+                                <li>🏖️ Calas vírgenes</li>
+                                <li>🏘️ Pueblos pesqueros</li>
+                                <li>🤿 Buceo y deportes acuáticos</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: Pirineos -->
+                    <article class="destino-card">
+                        <div class="card-image">
+                            <!-- Placeholder - Replace with actual image -->
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" 
+                                 alt="Pirineos Catalanes - Montañas y naturaleza" 
+                                 loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Pirineos</h3>
+                            <p class="card-description">Naturaleza en estado puro. Montañas majestuosas, valles verdes y pueblos de piedra. Ideal para senderismo, esquí y desconexión total.</p>
+                            <ul class="card-features">
+                                <li>⛰️ Parques naturales</li>
+                                <li>⛷️ Estaciones de esquí</li>
+                                <li>🥾 Rutas de senderismo</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Card 4: Tarragona -->
+                    <article class="destino-card">
+                        <div class="card-image">
+                            <!-- Placeholder - Replace with actual image -->
+                            <img src="https://images.unsplash.com/photo-1555992336-fb0d29cd93c0?w=800&h=600&fit=crop" 
+                                 alt="Tarragona - Ruinas romanas" 
+                                 loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Tarragona</h3>
+                            <p class="card-description">Viaja en el tiempo hasta la época romana. Anfiteatros, acueductos y un patrimonio histórico declarado Patrimonio de la Humanidad.</p>
+                            <ul class="card-features">
+                                <li>🏛️ Anfiteatro romano</li>
+                                <li>🌉 Acueducto del Diablo</li>
+                                <li>📜 Patrimonio UNESCO</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION 5: STRONG CTA
+             Final conversion section
+        ========================================= -->
+        <section class="cta-section">
+            <div class="cta-overlay">
+                <div class="container">
+                    <div class="cta-content">
+                        <h2 class="cta-title">¿Listo para tu aventura catalana?</h2>
+                        <p class="cta-text">Planifica tu viaje y descubre todo lo que Catalunya tiene para ofrecerte. Historia, cultura, gastronomía y paisajes inolvidables te esperan.</p>
+                        
+                        <!-- Strong CTAs -->
+                        <div class="cta-buttons">
+                            <a href="contacto.html" class="btn btn-large btn-primary">Planifica tu Viaje</a>
+                            <a href="#historia" class="btn btn-large btn-secondary">Conoce Más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+         SECTION 6: FOOTER
+         Links, social media, copyright
+    ========================================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                
+                <!-- Footer column 1: About -->
+                <div class="footer-column">
+                    <h4>Catalunya Turismo</h4>
+                    <p>Descubre la magia del Mediterráneo, la riqueza cultural y la hospitalidad catalana.</p>
+                    <p class="footer-slogan"><em>"Catalans i catalanes, sota la mateixa Senyera"</em></p>
+                </div>
+
+                <!-- Footer column 2: Quick Links -->
+                <div class="footer-column">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#historia">Historia</a></li>
+                        <li><a href="#destinos">Destinos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer column 3: Contact Info -->
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul class="footer-contact">
+                        <li>📍 Tarragona, Catalunya, España</li>
+                        <li>📞 +34 650 900 945</li>
+                        <li>✉️ info@catalunya-turismo.com</li>
+                    </ul>
+                </div>
+
+                <!-- Footer column 4: Social Media -->
+                <div class="footer-column">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-icon">Facebook</a>
+                        <a href="#" aria-label="Instagram" class="social-icon">Instagram</a>
+                        <a href="#" aria-label="Twitter" class="social-icon">Twitter</a>
+                        <a href="#" aria-label="YouTube" class="social-icon">YouTube</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Catalunya Turismo · Diseñado por Ricardo Avila para Ilerna</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
