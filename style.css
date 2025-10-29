@@ -373,25 +373,24 @@ ul {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Quick facts cards */
+/* Quick facts cards - GRID VERSION */
 .historia-facts {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
   gap: 20px;
-  flex-wrap: nowrap; /* Keep cards in single row */
-  justify-content: center; /* Center the cards horizontally */
-  max-width: 900px; /* Limit container width */
-  margin: 0 auto; /* Center the container itself */
+  max-width: 900px;
+  margin: 0 auto;
+  justify-items: center; /* Center items within their grid cells */
 }
 
 .fact-card {
-  flex: 1 1 0; /* Equal width for all cards */
   background-color: #fff;
   padding: 20px 10px;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  min-width: 150px;
-  max-width: 250px; /* Prevent cards from getting too wide */
+  width: 100%; /* Fill grid cell */
+  max-width: 250px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -856,13 +855,7 @@ ul {
   }
 
   .historia-facts {
-    justify-content: center;
-    flex-wrap: wrap; /* Allow wrapping on tablet */
-  }
-
-  .fact-card {
-    flex: 1 1 calc(50% - 20px); /* 2 columns on tablet */
-    max-width: 250px;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
   }
 
   /* CTA */
@@ -917,54 +910,47 @@ ul {
   }
 
   .historia-facts {
-    flex-wrap: wrap; /* Stack on mobile */
+    grid-template-columns: 1fr; /* Single column on mobile */
   }
 
   .fact-card {
-    flex: 1 1 100%; /* Single column on mobile */
     max-width: 100%; /* Full width on mobile */
   }
 }
 
 /* ===============================================
-   12. VERSION-SPECIFIC LAYOUTS
-   This section will be replaced in each branch
+   12. VERSION-SPECIFIC LAYOUTS - CSS GRID VERSION
    =============================================== */
 
-/* VERSION: FLEXBOX - Use flex-wrap and justify-content */
+/* VERSION: CSS GRID - Use grid-template-columns with auto-fit */
 .destinos-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
 }
 
 .destino-card {
-  flex: 1 1 calc(50% - 30px);
-  min-width: 300px;
-  max-width: 500px;
+  /* No need for flex properties, grid handles it */
+  width: 100%;
+  max-width: none; /* Let grid control the width */
 }
 
-/* For 3 columns on large screens */
+/* Responsive adjustments for Grid */
 @media (min-width: 1200px) {
-  .destino-card {
-    flex: 1 1 calc(25% - 30px);
+  .destinos-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
   }
 }
 
-/* For 2 columns on tablets */
 @media (max-width: 768px) {
-  .destino-card {
-    flex: 1 1 calc(50% - 20px);
+  .destinos-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
   }
 }
 
-/* For 1 column on mobile */
 @media (max-width: 480px) {
   .destinos-grid {
-    flex-direction: column;
-  }
-  
-  .destino-card {
-    flex: 1 1 100%;
+    grid-template-columns: 1fr; /* 1 column on mobile */
   }
 }
