@@ -653,6 +653,18 @@ ul {
 .social-icon:hover {
   background-color: #d4a520;
   color: #2c2c2c;
+  transform: translateY(-2px);
+}
+
+.social-svg {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* Make SVG white */
+  transition: filter 0.3s ease;
+}
+
+.social-icon:hover .social-svg {
+  filter: brightness(0); /* Make SVG dark on hover */
 }
 
 .footer-bottom {
