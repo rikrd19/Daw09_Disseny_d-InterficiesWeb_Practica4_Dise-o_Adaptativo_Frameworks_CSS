@@ -206,7 +206,7 @@ ul {
 .hero-section {
   position: relative;
   height: 600px;
-  background-image: url('sagrada-familia.jpg');
+  background-image: url('images/hero-sagrada-familia.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -372,20 +372,25 @@ ul {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Quick facts cards - BOOTSTRAP VERSION */
+/* Quick facts cards */
 .historia-facts {
-  max-width: 900px;
-  margin: 0 auto;
-  /* Bootstrap handles layout with .row and .col classes */
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap; /* Keep cards in single row */
+  justify-content: center; /* Center the cards horizontally */
+  max-width: 900px; /* Limit container width */
+  margin: 0 auto; /* Center the container itself */
 }
 
 .fact-card {
+  flex: 1 1 0; /* Equal width for all cards */
   background-color: #fff;
   padding: 20px 10px;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  height: 100%; /* Fill Bootstrap column height */
+  min-width: 150px;
+  max-width: 250px; /* Prevent cards from getting too wide */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -648,6 +653,18 @@ ul {
 .social-icon:hover {
   background-color: #d4a520;
   color: #2c2c2c;
+  transform: translateY(-2px);
+}
+
+.social-svg {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* Make SVG white */
+  transition: filter 0.3s ease;
+}
+
+.social-icon:hover .social-svg {
+  filter: brightness(0); /* Make SVG dark on hover */
 }
 
 .footer-bottom {
@@ -842,7 +859,15 @@ ul {
     flex-direction: column;
   }
 
-  /* Bootstrap handles historia-facts with .col-md-6 .col-lg-4 */
+  .historia-facts {
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on tablet */
+  }
+
+  .fact-card {
+    flex: 1 1 calc(50% - 20px); /* 2 columns on tablet */
+    max-width: 250px;
+  }
 
   /* CTA */
   .cta-title {
@@ -895,36 +920,57 @@ ul {
     gap: 10px;
   }
 
-  /* Bootstrap handles historia-facts with .col-12 */
+  .historia-facts {
+    flex-wrap: wrap; /* Stack on mobile */
+  }
+
+  .fact-card {
+    flex: 1 1 100%; /* Single column on mobile */
+    max-width: 100%; /* Full width on mobile */
+  }
 }
 
 /* ===============================================
-   12. VERSION-SPECIFIC LAYOUTS - BOOTSTRAP VERSION
+   12. VERSION-SPECIFIC LAYOUTS
+   This section will be replaced in each branch
    =============================================== */
 
-/* VERSION: BOOTSTRAP 5 - Grid handled by .row and .col-* classes */
+/* VERSION: FLEXBOX - Use flex-wrap and justify-content */
 .destinos-grid {
-  /* Bootstrap handles layout:
-     - .row with .g-4 for gap
-     - .col-12 .col-md-6 .col-lg-3 for responsive columns
-     No custom CSS needed for layout */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 
 .destino-card {
-  height: 100%; /* Fill Bootstrap column height for equal card heights */
-  display: flex;
-  flex-direction: column;
+  flex: 1 1 calc(50% - 30px);
+  min-width: 280px;
+  max-width: 500px;
 }
 
-.card-content {
-  flex-grow: 1; /* Push content to fill available space */
+/* For 3 columns on large screens (desktop) */
+@media (min-width: 1200px) {
+  .destino-card {
+    flex: 1 1 calc(33.333% - 30px);
+    max-width: none; /* Remove max-width to allow 3 cards in a row */
+  }
 }
 
-/* Bootstrap breakpoints are:
-   - xs: <576px (mobile)
-   - sm: ≥576px
-   - md: ≥768px (tablet)
-   - lg: ≥992px (desktop)
-   - xl: ≥1200px
-   - xxl: ≥1400px
-*/
+/* For 2 columns on tablets */
+@media (max-width: 768px) {
+  .destino-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+/* For 1 column on mobile */
+@media (max-width: 480px) {
+  .destinos-grid {
+    flex-direction: column;
+  }
+  
+  .destino-card {
+    flex: 1 1 100%;
+  }
+}
