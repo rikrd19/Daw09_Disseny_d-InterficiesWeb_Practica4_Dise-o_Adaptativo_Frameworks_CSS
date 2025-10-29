@@ -775,14 +775,7 @@ ul {
 }
 
 .info-item {
-  display: flex;
-  gap: 15px;
   margin-bottom: 20px;
-}
-
-.info-icon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
 }
 
 .info-text strong {
