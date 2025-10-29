@@ -206,7 +206,7 @@ ul {
 .hero-section {
   position: relative;
   height: 600px;
-  background-image: url('sagrada-familia.jpg');
+  background-image: url('images/hero-sagrada-familia.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -652,6 +652,18 @@ ul {
 .social-icon:hover {
   background-color: #d4a520;
   color: #2c2c2c;
+  transform: translateY(-2px);
+}
+
+.social-svg {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* Make SVG white */
+  transition: filter 0.3s ease;
+}
+
+.social-icon:hover .social-svg {
+  filter: brightness(0); /* Make SVG dark on hover */
 }
 
 .footer-bottom {
@@ -931,7 +943,7 @@ ul {
 /* Responsive adjustments for Grid */
 @media (min-width: 1200px) {
   .destinos-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on large screens for 6 cards (3x2) */
   }
 }
 
