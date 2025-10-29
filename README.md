@@ -130,5 +130,9 @@ Colores principales inspirados en la senyera catalana:
 
 ---
 
-**Última actualización:** 29 de octubre de 2025
+**Última actualización:** 29 de octubre de 2025  
 **Versión actual:** 1.0 - version-grid
+
+---
+
+**Diseñado por Ricardo Avila** | ricardo@avila.ws
