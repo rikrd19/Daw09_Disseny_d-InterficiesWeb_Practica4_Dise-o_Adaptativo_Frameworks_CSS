@@ -206,7 +206,7 @@ ul {
 .hero-section {
   position: relative;
   height: 600px;
-  background-image: url('images/sagrada-familia.jpg');
+  background-image: url('images/hero-sagrada-familia.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
