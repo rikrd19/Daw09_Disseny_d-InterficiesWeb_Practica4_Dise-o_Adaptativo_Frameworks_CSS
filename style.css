@@ -206,7 +206,7 @@ ul {
 .hero-section {
   position: relative;
   height: 600px;
-  background-image: url('sagrada-familia.jpg');
+  background-image: url('images/sagrada-familia.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -937,11 +937,11 @@ ul {
   max-width: 500px;
 }
 
-/* For 4 columns on large screens (desktop) */
+/* For 3 columns on large screens (desktop) */
 @media (min-width: 1200px) {
   .destino-card {
-    flex: 1 1 calc(25% - 30px);
-    max-width: none; /* Remove max-width to allow 4 cards in a row */
+    flex: 1 1 calc(33.333% - 30px);
+    max-width: none; /* Remove max-width to allow 3 cards in a row */
   }
 }
 
