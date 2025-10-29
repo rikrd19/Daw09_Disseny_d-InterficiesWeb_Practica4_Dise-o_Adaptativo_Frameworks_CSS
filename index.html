@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descubre Catalunya - Turismo cultural y experiencias únicas en el corazón del Mediterráneo">
     <title>Descubre Catalunya - Turismo Cultural</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS (overrides Bootstrap) -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -103,19 +108,25 @@
                             <img src="Mapa.png" alt="Mapa histórico de Catalunya" class="img-responsive">
                         </div>
 
-                        <!-- Quick facts cards -->
-                        <div class="historia-facts">
-                            <div class="fact-card">
-                                <h4>🏛️ Patrimonio</h4>
-                                <p>9 sitios UNESCO</p>
+                        <!-- Quick facts cards - Bootstrap Grid -->
+                        <div class="row g-3 justify-content-center historia-facts">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="fact-card">
+                                    <h4>🏛️ Patrimonio</h4>
+                                    <p>9 sitios UNESCO</p>
+                                </div>
                             </div>
-                            <div class="fact-card">
-                                <h4>🎨 Cultura</h4>
-                                <p>Cuna del modernismo</p>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="fact-card">
+                                    <h4>🎨 Cultura</h4>
+                                    <p>Cuna del modernismo</p>
+                                </div>
                             </div>
-                            <div class="fact-card">
-                                <h4>🌊 Costa</h4>
-                                <p>580 km de litoral</p>
+                            <div class="col-12 col-lg-4">
+                                <div class="fact-card">
+                                    <h4>🌊 Costa</h4>
+                                    <p>580 km de litoral</p>
+                                </div>
                             </div>
                         </div>
                     </aside>
@@ -176,10 +187,11 @@
                     <p class="section-intro">De la vibrante Barcelona a las playas de la Costa Brava, cada rincón de Catalunya cuenta una historia única.</p>
                 </div>
 
-                <!-- Grid/Flex container for destination cards -->
-                <div class="destinos-grid">
+                <!-- Bootstrap Grid container for destination cards -->
+                <div class="row g-4 destinos-grid">
                     
                     <!-- Card 1: Barcelona -->
+                    <div class="col-12 col-md-6 col-lg-3">
                     <article class="destino-card">
                         <div class="card-image">
                             <!-- Placeholder - Replace with actual image -->
@@ -197,8 +209,10 @@
                             </ul>
                         </div>
                     </article>
+                    </div>
 
                     <!-- Card 2: Costa Brava -->
+                    <div class="col-12 col-md-6 col-lg-3">
                     <article class="destino-card">
                         <div class="card-image">
                             <!-- Placeholder - Replace with actual image -->
@@ -216,8 +230,10 @@
                             </ul>
                         </div>
                     </article>
+                    </div>
 
                     <!-- Card 3: Pirineos -->
+                    <div class="col-12 col-md-6 col-lg-3">
                     <article class="destino-card">
                         <div class="card-image">
                             <!-- Placeholder - Replace with actual image -->
@@ -235,8 +251,10 @@
                             </ul>
                         </div>
                     </article>
+                    </div>
 
                     <!-- Card 4: Tarragona -->
+                    <div class="col-12 col-md-6 col-lg-3">
                     <article class="destino-card">
                         <div class="card-image">
                             <!-- Placeholder - Replace with actual image -->
@@ -254,6 +272,7 @@
                             </ul>
                         </div>
                     </article>
+                    </div>
 
                 </div>
             </div>

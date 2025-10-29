@@ -373,25 +373,20 @@ ul {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Quick facts cards */
+/* Quick facts cards - BOOTSTRAP VERSION */
 .historia-facts {
-  display: flex;
-  gap: 20px;
-  flex-wrap: nowrap; /* Keep cards in single row */
-  justify-content: center; /* Center the cards horizontally */
-  max-width: 900px; /* Limit container width */
-  margin: 0 auto; /* Center the container itself */
+  max-width: 900px;
+  margin: 0 auto;
+  /* Bootstrap handles layout with .row and .col classes */
 }
 
 .fact-card {
-  flex: 1 1 0; /* Equal width for all cards */
   background-color: #fff;
   padding: 20px 10px;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  min-width: 150px;
-  max-width: 250px; /* Prevent cards from getting too wide */
+  height: 100%; /* Fill Bootstrap column height */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -855,15 +850,7 @@ ul {
     flex-direction: column;
   }
 
-  .historia-facts {
-    justify-content: center;
-    flex-wrap: wrap; /* Allow wrapping on tablet */
-  }
-
-  .fact-card {
-    flex: 1 1 calc(50% - 20px); /* 2 columns on tablet */
-    max-width: 250px;
-  }
+  /* Bootstrap handles historia-facts with .col-md-6 .col-lg-4 */
 
   /* CTA */
   .cta-title {
@@ -916,55 +903,36 @@ ul {
     gap: 10px;
   }
 
-  .historia-facts {
-    flex-wrap: wrap; /* Stack on mobile */
-  }
-
-  .fact-card {
-    flex: 1 1 100%; /* Single column on mobile */
-    max-width: 100%; /* Full width on mobile */
-  }
+  /* Bootstrap handles historia-facts with .col-12 */
 }
 
 /* ===============================================
-   12. VERSION-SPECIFIC LAYOUTS
-   This section will be replaced in each branch
+   12. VERSION-SPECIFIC LAYOUTS - BOOTSTRAP VERSION
    =============================================== */
 
-/* VERSION: FLEXBOX - Use flex-wrap and justify-content */
+/* VERSION: BOOTSTRAP 5 - Grid handled by .row and .col-* classes */
 .destinos-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  /* Bootstrap handles layout:
+     - .row with .g-4 for gap
+     - .col-12 .col-md-6 .col-lg-3 for responsive columns
+     No custom CSS needed for layout */
 }
 
 .destino-card {
-  flex: 1 1 calc(50% - 30px);
-  min-width: 300px;
-  max-width: 500px;
+  height: 100%; /* Fill Bootstrap column height for equal card heights */
+  display: flex;
+  flex-direction: column;
 }
 
-/* For 3 columns on large screens */
-@media (min-width: 1200px) {
-  .destino-card {
-    flex: 1 1 calc(25% - 30px);
-  }
+.card-content {
+  flex-grow: 1; /* Push content to fill available space */
 }
 
-/* For 2 columns on tablets */
-@media (max-width: 768px) {
-  .destino-card {
-    flex: 1 1 calc(50% - 20px);
-  }
-}
-
-/* For 1 column on mobile */
-@media (max-width: 480px) {
-  .destinos-grid {
-    flex-direction: column;
-  }
-  
-  .destino-card {
-    flex: 1 1 100%;
-  }
-}
+/* Bootstrap breakpoints are:
+   - xs: <576px (mobile)
+   - sm: ≥576px
+   - md: ≥768px (tablet)
+   - lg: ≥992px (desktop)
+   - xl: ≥1200px
+   - xxl: ≥1400px
+*/
