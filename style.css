@@ -199,6 +199,28 @@ ul {
   background-color: #b8941c;
 }
 
+/* Hamburger Menu Icon */
+.hamburger-menu {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.hamburger-menu span {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+  transition: all 0.3s linear;
+}
+
 /* ===============================================
    4. HERO SECTION
    =============================================== */
@@ -375,11 +397,9 @@ ul {
 /* Quick facts cards - GRID VERSION */
 .historia-facts {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  /* Use auto-fit to create a responsive number of columns */
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  justify-items: center; /* Center items within their grid cells */
 }
 
 .fact-card {
@@ -389,7 +409,6 @@ ul {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 100%; /* Fill grid cell */
-  max-width: 250px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -816,7 +835,7 @@ ul {
 }
 
 /* ===============================================
-   11. RESPONSIVE DESIGN - Mobile First
+   11. RESPONSIVE DESIGN - Desktop First
    =============================================== */
 
 /* Tablet: 768px and below */
@@ -824,19 +843,47 @@ ul {
   
   /* Header */
   .header-container {
-    flex-direction: column;
-    gap: 15px;
+    justify-content: space-between;
   }
 
   .main-nav {
+    display: none; /* Hide nav by default */
+    position: absolute;
+    top: 91px; /* Position below header */
+    left: 0;
     width: 100%;
-    justify-content: center;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  }
+
+  .main-nav.is-active {
+    display: block; /* Show nav when active */
   }
 
   .nav-list {
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .nav-list a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .nav-list a:hover {
+    background-color: #f9f9f9;
+  }
+
+  .btn-language {
+    display: none; /* Hide language button on mobile */
+  }
+
+  .hamburger-menu {
+    display: flex; /* Show hamburger icon */
   }
 
   /* Hero */
@@ -856,10 +903,6 @@ ul {
   /* Historia */
   .historia-content {
     flex-direction: column;
-  }
-
-  .historia-facts {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
   }
 
   /* CTA */
@@ -906,19 +949,6 @@ ul {
   .btn {
     padding: 10px 20px;
     font-size: 0.9rem;
-  }
-
-  .nav-list {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .historia-facts {
-    grid-template-columns: 1fr; /* Single column on mobile */
-  }
-
-  .fact-card {
-    max-width: 100%; /* Full width on mobile */
   }
 }
 
