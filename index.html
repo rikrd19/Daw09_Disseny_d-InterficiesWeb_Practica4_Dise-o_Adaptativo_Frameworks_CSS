@@ -26,7 +26,7 @@
             </div>
 
             <!-- Main Navigation -->
-            <nav class="main-nav">
+            <nav class="main-nav" id="main-nav-links">
                 <ul class="nav-list">
                     <li><a href="#hero">Inicio</a></li>
                     <li><a href="#historia">Historia</a></li>
@@ -37,6 +37,13 @@
 
             <!-- Language selector (optional) -->
             <button type="button" class="btn-language">ES / CAT</button>
+
+            <!-- Hamburger Icon -->
+            <button id="hamburger-menu" class="hamburger-menu" aria-label="Toggle Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -383,6 +390,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript for Hamburger Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerButton = document.getElementById('hamburger-menu');
+            const navLinks = document.getElementById('main-nav-links');
+
+            hamburgerButton.addEventListener('click', function () {
+                const isExpanded = navLinks.classList.toggle('is-active');
+                hamburgerButton.setAttribute('aria-expanded', isExpanded);
+            });
+        });
+    </script>
 
 </body>
 </html>
