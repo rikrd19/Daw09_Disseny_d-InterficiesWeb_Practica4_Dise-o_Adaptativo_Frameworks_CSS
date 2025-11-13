@@ -1,33 +1,3 @@
-# Práctica 5: Media Queries y Diseño Adaptativo Avanzado
-
-En esta segunda fase, se mejoró el diseño adaptativo del sitio utilizando Media Queries y se implementaron funcionalidades avanzadas para mejorar la experiencia en dispositivos móviles.
-
-### Implementación Clave: Menú Hamburguesa
-
--   **Funcionalidad**: Se ha implementado un **navegador hamburguesa** en todas las páginas para resoluciones de tablet y móvil (`768px` o menos).
--   **Tecnología**: La funcionalidad se controla mediante HTML para la estructura, CSS para los estilos y la visibilidad, y JavaScript para manejar el evento de clic que alterna el menú.
-
-### Estrategia de Diseño: Desktop First
-
-Para este proyecto se eligió la estrategia **Desktop First**. La justificación es la siguiente:
-
--   **Complejidad del Diseño Original**: El diseño para escritorio es el más complejo. Resultó más intuitivo comenzar con esta versión completa y luego simplificarla progresivamente para dispositivos más pequeños.
--   **Degradación Elegante**: Partiendo del diseño de escritorio, se van adaptando elementos para tablet y móvil, asegurando que la experiencia sea óptima en cada resolución.
--   **Código Organizado**: Los estilos base se aplican a la versión de escritorio, y las adaptaciones se agrupan en bloques `@media (max-width: ...)` al final del archivo CSS, manteniendo el código ordenado.
-
-### Estrategias de Diseño Adaptativo Implementadas
-
-Se han implementado las siguientes tres estrategias de diseño adaptativo:
-
-1.  **Column Drop (Caída de Columnas)**: Es la estrategia más utilizada. Los contenedores que se muestran como columnas en pantallas grandes se apilan verticalmente en pantallas pequeñas.
-    *   **Ejemplos**: La sección de "Historia", las columnas del footer y el formulario de contacto.
-
-2.  **Layout Shifter (Cambiador de Disposición)**: La parrilla de "Destinos" cambia su estructura de 3 columnas en escritorio a 2 en tablet y finalmente a 1 en móvil, reorganizando el contenido de manera eficiente para cada tamaño de pantalla.
-
-3.  **Tiny Tweaks (Pequeños Ajustes)**: Se reduce el tamaño de las fuentes, márgenes y rellenos en las media queries para móvil, optimizando el espacio y la legibilidad sin alterar el layout principal.
-
----
-
 # Práctica 4 - Diseño Adaptativo y Frameworks CSS
 
 Landing page responsive de turismo en Catalunya desarrollada como parte de la asignatura de Diseño de Interfaces Web.

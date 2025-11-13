@@ -7,6 +7,7 @@
     <title>Contacto - Catalunya Turismo</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Decorative banner stripes -->
@@ -23,8 +24,15 @@
                 <span class="logo-text">Catalunya</span>
             </div>
 
+             <!-- Hamburger Menu Button -->
+        <button class="hamburger-menu" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mainNav">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
             <!-- Main Navigation -->
-            <nav class="main-nav">
+            <nav class="main-nav" id="main-nav-links">
                 <ul class="nav-list">
                     <li><a href="index.html#hero">Inicio</a></li>
                     <li><a href="index.html#historia">Historia</a></li>
@@ -35,16 +43,14 @@
 
             <!-- Language selector -->
             <button type="button" class="btn-language">ES / CAT</button>
+            
+            <!-- Hamburger Icon -->
+            <button id="hamburger-menu" class="hamburger-menu" aria-label="Toggle Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-
-         <!-- Hamburger Icon -->
-         <button id="hamburger-menu" class="hamburger-menu" aria-label="Toggle Menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-
     </header>
 
     <!-- ========================================
@@ -249,6 +255,7 @@
                         </a>
                     </div>
                 </div>
+
             </div>
 
             <!-- Copyright -->
@@ -258,8 +265,8 @@
         </div>
     </footer>
 
-     <!-- JavaScript for Hamburger Menu -->
-     <script>
+    <!-- JavaScript for Hamburger Menu -->
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             const hamburgerButton = document.getElementById('hamburger-menu');
             const navLinks = document.getElementById('main-nav-links');
@@ -273,4 +280,3 @@
 
 </body>
 </html>
-

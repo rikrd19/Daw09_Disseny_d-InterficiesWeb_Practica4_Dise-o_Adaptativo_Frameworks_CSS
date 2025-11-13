@@ -394,21 +394,25 @@ ul {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Quick facts cards - GRID VERSION */
+/* Quick facts cards */
 .historia-facts {
-  display: grid;
-  /* Use auto-fit to create a responsive number of columns */
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  display: flex;
   gap: 20px;
+  flex-wrap: nowrap; /* Keep cards in single row on desktop */
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .fact-card {
+  flex: 1 1 0; /* Equal width for all cards */
   background-color: #fff;
   padding: 20px 10px;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Fill grid cell */
+  min-width: 150px;
+  max-width: 250px; /* Prevent cards from getting too wide */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -841,11 +845,12 @@ ul {
 /* Tablet: 768px and below */
 @media (max-width: 768px) {
   
-  /* Header */
+  /* Header adjustments for hamburger menu */
   .header-container {
+    flex-wrap: nowrap;
     justify-content: space-between;
   }
-
+  
   .main-nav {
     display: none; /* Hide nav by default */
     position: absolute;
@@ -854,15 +859,16 @@ ul {
     width: 100%;
     background-color: white;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    flex-direction: column; /* Ensure it stacks vertically */
   }
 
   .main-nav.is-active {
-    display: block; /* Show nav when active */
+    display: flex; /* Show nav when active */
   }
 
   .nav-list {
     flex-direction: column;
-    align-items: center;
+    width: 100%;
     gap: 0;
   }
 
@@ -875,7 +881,7 @@ ul {
   }
 
   .nav-list a:hover {
-    background-color: #f9f9f9;
+      background-color: #f9f9f9;
   }
 
   .btn-language {
@@ -885,7 +891,7 @@ ul {
   .hamburger-menu {
     display: flex; /* Show hamburger icon */
   }
-
+  
   /* Hero */
   .hero-title {
     font-size: 2.5rem;
@@ -903,6 +909,16 @@ ul {
   /* Historia */
   .historia-content {
     flex-direction: column;
+  }
+
+  .historia-facts {
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on tablet */
+  }
+
+  .fact-card {
+    flex: 1 1 calc(50% - 20px); /* 2 columns on tablet */
+    max-width: 250px;
   }
 
   /* CTA */
@@ -950,41 +966,62 @@ ul {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .historia-facts {
+    flex-wrap: wrap; /* Stack on mobile */
+  }
+
+  .fact-card {
+    flex: 1 1 100%; /* Single column on mobile */
+    max-width: 100%; /* Full width on mobile */
+  }
 }
 
 /* ===============================================
-   12. VERSION-SPECIFIC LAYOUTS - CSS GRID VERSION
+   12. VERSION-SPECIFIC LAYOUTS - FLEXBOX VERSION
    =============================================== */
 
-/* VERSION: CSS GRID - Use grid-template-columns with auto-fit */
+/* VERSION: FLEXBOX - Use flex-wrap and justify-content */
 .destinos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 30px;
-  margin-top: 50px;
 }
 
 .destino-card {
-  /* No need for flex properties, grid handles it */
-  width: 100%;
-  max-width: none; /* Let grid control the width */
+  flex: 1 1 calc(50% - 30px);
+  min-width: 280px;
+  max-width: 500px;
 }
 
-/* Responsive adjustments for Grid */
+/* For 3 columns on large screens (desktop) */
 @media (min-width: 1200px) {
-  .destinos-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on large screens for 6 cards (3x2) */
+  .destino-card {
+    flex: 1 1 calc(33.333% - 30px);
+    max-width: none; /* Remove max-width to allow 3 cards in a row */
   }
 }
 
+/* For 2 columns on tablets */
 @media (max-width: 768px) {
-  .destinos-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  .destino-card {
+    flex: 1 1 calc(50% - 20px);
   }
 }
 
+/* For 1 column on mobile */
 @media (max-width: 480px) {
   .destinos-grid {
-    grid-template-columns: 1fr; /* 1 column on mobile */
+    flex-direction: column;
+  }
+  
+  .destino-card {
+    flex: 1 1 100%;
   }
 }
