@@ -10,8 +10,8 @@
 
 <body>
     
-    <!-- Decorative banner stripes -->
-    <img src="images/lineasBandera.png" alt="Franjas decorativas de la bandera catalana" class="banner-franjas">
+    <!-- Decorative banner stripes converted to CSS background -->
+    <div class="banner-franjas" aria-hidden="true"></div>
     
     <!-- ========================================
          SECTION 1: HEADER
@@ -189,10 +189,14 @@
                     <!-- Card 1: Barcelona -->
                     <article class="destino-card">
                         <div class="card-image">
-                            <!-- Real image - Sagrada Familia de Gaudí -->
-                            <img src="images/sagrada-familia.jpg" 
-                                 alt="Barcelona - Sagrada Familia de Gaudí, obra maestra del modernismo" 
-                                 loading="lazy">
+                            <!-- EJERCICIO 6.3: Uso <picture> para servir 3 resoluciones y reducir peso en tablet/móvil -->
+                            <picture>
+                                <source srcset="images/sagrada-familia-desktop.jpg" media="(min-width: 1025px)">
+                                <source srcset="images/sagrada-familia-tablet.jpg" media="(min-width: 769px)">
+                                <img src="images/sagrada-familia-mobile.jpg" 
+                                     alt="Barcelona - Sagrada Familia de Gaudí, obra maestra del modernismo" 
+                                     loading="lazy">
+                            </picture>
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">Barcelona</h3>
