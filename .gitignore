@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Editor backups
+*~
+*.swp
+*.swo
+
+# OS generated files
+Thumbs.db
