@@ -138,13 +138,26 @@ const translations = {
     'label-privacy': { 'es': 'Acepto la política de privacidad y el tratamiento de mis datos personales', 'ca': 'Accepto la política de privadesa i el tractament de les meves dades personals', 'en': 'I accept the privacy policy and the processing of my personal data' },
     'btn-send': { 'es': 'Enviar Mensaje', 'ca': 'Enviar Missatge', 'en': 'Send Message' },
     'info-h3': { 'es': 'Información de Contacto', 'ca': 'Informació de Contacte', 'en': 'Contact Information' },
-    'info-address': { 'es': '<strong>Dirección:</strong>', 'ca': '<strong>Adreça:</strong>', 'en': '<strong>Address:</strong>' },
-    'info-phone': { 'es': '<strong>Teléfono:</strong>', 'ca': '<strong>Telèfon:</strong>', 'en': '<strong>Phone:</strong>' },
-    'info-email': { 'es': '<strong>Email:</strong>', 'ca': '<strong>Email:</strong>', 'en': '<strong>Email:</strong>' },
-    'info-hours': { 'es': '<strong>Horario:</strong>', 'ca': '<strong>Horari:</strong>', 'en': '<strong>Hours:</strong>' },
+    'info-address': { 'es': 'Dirección:', 'ca': 'Adreça:', 'en': 'Address:' },
+    'info-phone': { 'es': 'Teléfono:', 'ca': 'Telèfon:', 'en': 'Phone:' },
+    'info-email': { 'es': 'Email:', 'ca': 'Email:', 'en': 'Email:' },
+    'info-hours': { 'es': 'Horario:', 'ca': 'Horari:', 'en': 'Hours:' },
     'info-hours-val': { 'es': 'Lunes a Viernes: 9:00 - 18:00<br>Sábados: 10:00 - 14:00', 'ca': 'Dilluns a Divendres: 9:00 - 18:00<br>Dissabtes: 10:00 - 14:00', 'en': 'Monday to Friday: 9:00 - 18:00<br>Saturdays: 10:00 - 14:00' },
     'map-h3': { 'es': 'Encuéntranos', 'ca': 'Troba\'ns', 'en': 'Find Us' },
-    'btn-back': { 'es': '← Volver al Inicio', 'ca': '← Tornar a l\'Inici', 'en': '← Back to Home' }
+    'btn-back': { 'es': '← Volver al Inicio', 'ca': '← Tornar a l\'Inici', 'en': '← Back to Home' },
+
+    // Placeholders & Dynamic Attributes
+    'nombre': { 'es': 'Ej: Juan García', 'ca': 'Ex: Joan Garcia', 'en': 'e.g.: John Smith' },
+    'email': { 'es': 'ejemplo@correo.com', 'ca': 'exemple@correu.com', 'en': 'example@email.com' },
+    'telefono': { 'es': '+34 600 123 456', 'ca': '+34 600 123 456', 'en': '+34 600 123 456' },
+    'mensaje': { 'es': 'Cuéntanos qué tipo de experiencia buscas...', 'ca': 'Explica\'ns quin tipus d\'experiència busques...', 'en': 'Tell us what kind of experience you are looking for...' },
+    'opt-dest-placeholder': { 'es': 'Selecciona un destino', 'ca': 'Selecciona un destí', 'en': 'Select a destination' },
+    'info-address-val': { 'es': 'Oficina de Turismo Catalunya<br>Tarragona, España', 'ca': 'Oficina de Turisme Catalunya<br>Tarragona, Espanya', 'en': 'Catalonia Tourism Office<br>Tarragona, Spain' },
+    'google-map': {
+        'es': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.9017669209364!2d1.244486815497392!3d41.118884779276836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a425c8b260a9fb%3A0x21762e3c32576d0!2sTarragona%2C%20Catalunya%2C%20España!5e0!3m2!1ses!2ses!4v1707557589220!5m2!1ses!2ses',
+        'ca': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.9017669209364!2d1.244486815497392!3d41.118884779276836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a425c8b260a9fb%3A0x21762e3c32576d0!2sTarragona%2C%20Catalunya%2C%20España!5e0!3m2!1sca!2sca!4v1707557589220!5m2!1sca!2sca',
+        'en': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.9017669209364!2d1.244486815497392!3d41.118884779276836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a425c8b260a9fb%3A0x21762e3c32576d0!2sTarragona%2C%20Catalunya%2C%20España!5e0!3m2!1sen!2sen!4v1707557589220!5m2!1sen!2sen'
+    }
 };
 
 function setLanguage(lang) {
@@ -152,7 +165,13 @@ function setLanguage(lang) {
     for (const key in translations) {
         const element = document.getElementById(key);
         if (element) {
-            element.innerHTML = translations[key][lang];
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translations[key][lang];
+            } else if (element.tagName === 'IFRAME') {
+                element.src = translations[key][lang];
+            } else {
+                element.innerHTML = translations[key][lang];
+            }
         }
     }
     
@@ -176,6 +195,7 @@ function loadPreference() {
 
 // Add event listeners when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Language selector
     const selector = document.getElementById('selector-idiomas');
     if (selector) {
         selector.addEventListener('click', (event) => {
@@ -186,6 +206,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     setLanguage(lang);
                 }
             }
+        });
+    }
+
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger-menu');
+    const mainNav = document.getElementById('main-nav') || document.getElementById('main-nav-links');
+    
+    if (hamburger && mainNav) {
+        hamburger.addEventListener('click', () => {
+            mainNav.classList.toggle('is-active');
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+            hamburger.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('is-active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
         });
     }
 

@@ -26,7 +26,7 @@
             </div>
 
             <!-- Main Navigation -->
-            <nav class="main-nav">
+            <nav class="main-nav" id="main-nav-links">
                 <ul class="nav-list">
                     <li><a id="nav-home" href="index.html#hero">Inicio</a></li>
                     <li><a id="nav-history" href="index.html#historia">Historia</a></li>
@@ -44,6 +44,13 @@
                     <button data-lang="en">English</button>
                 </div>
             </div>
+
+            <!-- Hamburger Icon -->
+            <button id="hamburger-menu" class="hamburger-menu" aria-label="Toggle Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -92,12 +99,12 @@
                         <div class="form-group">
                             <label id="label-destination" for="destino">Destino de Interés</label>
                             <select id="destino" name="destino">
-                                <option value="">Selecciona un destino</option>
-                                <option value="barcelona">Barcelona</option>
-                                <option value="costa-brava">Costa Brava</option>
-                                <option value="pirineos">Pirineos</option>
-                                <option value="tarragona">Tarragona</option>
-                                <option value="todos">Todos los destinos</option>
+                                <option id="opt-dest-placeholder" value="">Selecciona un destino</option>
+                                <option id="opt-dest-bcn" value="barcelona">Barcelona</option>
+                                <option id="opt-dest-cb" value="costa-brava">Costa Brava</option>
+                                <option id="opt-dest-pir" value="pirineos">Pirineos</option>
+                                <option id="opt-dest-tgn" value="tarragona">Tarragona</option>
+                                <option id="opt-dest-all" value="todos">Todos los destinos</option>
                             </select>
                         </div>
 
@@ -129,7 +136,7 @@
                         <div class="info-item">
                             <div class="info-text">
                                 <strong id="info-address">Dirección:</strong>
-                                <p>Oficina de Turismo Catalunya<br>
+                                <p id="info-address-val">Oficina de Turismo Catalunya<br>
                                     Tarragona, España</p>
                             </div>
                         </div>
@@ -160,7 +167,7 @@
                     <!-- Map -->
                     <div class="map-wrapper">
                         <h3 id="map-h3">Encuéntranos</h3>
-                        <iframe
+                        <iframe id="google-map"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.9017669209364!2d1.244486815497392!3d41.118884779276836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a425c8b260a9fb%3A0x21762e3c32576d0!2sTarragona%2C%20Catalunya%2C%20España!5e0!3m2!1ses!2ses!4v1707557589220!5m2!1ses!2ses"
                             width="100%" height="300" style="border:0; border-radius: 8px;" allowfullscreen=""
                             loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -242,6 +249,7 @@
             </div>
         </div>
     </footer>
+
 
     <script src="script.js"></script>
 </body>
