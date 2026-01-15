@@ -54,6 +54,16 @@ const translations = {
     ca: '"El cor català batega en aquests colors"',
     en: '"The Catalan heart beats in these colors"',
   },
+  "history-p3": {
+    es: "Ya a mediados del siglo XVI, el historiador valenciano Pere Antoni Beuter narra la leyenda de <em>Wifredo el Velloso</em> y los dedos de sangre en su Crónica General de España. Posteriormente, en un poema de 1644, Francesc Fontanella aludía a las barras:",
+    ca: "Ja a mitjans del segle XVI, l'historiador valencià Pere Antoni Beuter narra la llegenda de <em>Guifré el Pilós</em> i els dits de sang a la seva Crònica General d'Espanya. Posteriorment, en un poema de 1644, Francesc Fontanella al·ludia a les barres:",
+    en: "By the mid-16th century, the Valencian historian Pere Antoni Beuter narrates the legend of <em>Wilfred the Hairy</em> and the bloodied fingers in his General Chronicle of Spain. Later, in a 1644 poem, Francesc Fontanella alluded to the bars:",
+  },
+  "audio-title": {
+    es: "Himno de Catalunya: Els Segadors",
+    ca: "Himne de Catalunya: Els Segadors",
+    en: "Anthem of Catalonia: Els Segadors",
+  },
 
   // Fact Cards
   "fact-patrimonio-h4": { es: "Patrimonio", ca: "Patrimoni", en: "Heritage" },
