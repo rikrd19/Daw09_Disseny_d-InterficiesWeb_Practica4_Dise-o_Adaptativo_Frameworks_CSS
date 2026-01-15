@@ -166,31 +166,6 @@
                   >
                 </p>
               </blockquote>
-
-              <!-- Reproductor de Audio Personalizado -->
-              <div class="audio-player-container">
-                <h4 id="audio-title">Himne de Catalunya: Els Segadors</h4>
-                <audio id="himne-audio">
-                  <source
-                    src="audio/els-segadors-himne-nacional-de-catalunya.ogg"
-                    type="audio/ogg"
-                  />
-                  <source
-                    src="audio/els-segadors-himne-nacional-de-catalunya.mp3"
-                    type="audio/mpeg"
-                  />
-                  Tu navegador no soporta el elemento de audio.
-                </audio>
-                <div class="audio-controls">
-                  <button
-                    id="play-pause-btn"
-                    class="control-btn"
-                    aria-label="Reproducir"
-                  >
-                    <i class="fas fa-play"></i>
-                  </button>
-                </div>
-              </div>
             </article>
 
             <!-- Visual content column -->
@@ -224,6 +199,35 @@
                 </div>
               </div>
             </aside>
+          </div>
+        </div>
+
+          <!-- Centered Audio Player -->
+          <div class="audio-player-wrapper">
+            <!-- Reproductor de Audio Personalizado -->
+            <div class="audio-player-container">
+              <h4 id="audio-title">Himne de Catalunya: Els Segadors</h4>
+              <audio id="himne-audio">
+                <source
+                  src="audio/els-segadors-himne-nacional-de-catalunya.ogg"
+                  type="audio/ogg"
+                />
+                <source
+                  src="audio/els-segadors-himne-nacional-de-catalunya.mp3"
+                  type="audio/mpeg"
+                />
+                Tu navegador no soporta el elemento de audio.
+              </audio>
+              <div class="audio-controls">
+                <button
+                  id="play-pause-btn"
+                  class="control-btn"
+                  aria-label="Reproducir"
+                >
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+            </div>
           </div>
 
           <!-- Provinces table -->
