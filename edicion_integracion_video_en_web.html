@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edición e Integración de Vídeo - Práctica 9">
+    <title>Mi Video Optimizado - Catalunya Turismo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- Decorative banner stripes -->
+    <img src="images/lineasBandera.png" alt="Franjas decorativas de la bandera catalana" class="banner-franjas">
+
+    <!-- ========================================
+         HEADER
+    ========================================= -->
+    <header class="site-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo-wrapper">
+                <img src="images/generCatalu.png" alt="Logo Catalunya Turismo" class="logo">
+                <span class="logo-text">Catalunya</span>
+            </div>
+
+            <!-- Main Navigation -->
+            <nav class="main-nav" id="main-nav-links">
+                <ul class="nav-list">
+                    <li><a id="nav-home" href="index.html#hero">Inicio</a></li>
+                    <li><a id="nav-history" href="index.html#historia">Historia</a></li>
+                    <li><a id="nav-destinations" href="index.html#destinos">Destinos</a></li>
+                    <li><a id="nav-contact" href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Language selector - Dropdown -->
+            <div class="language-dropdown">
+                <button id="dropbtn" class="btn-language dropbtn">Idioma ▼</button>
+                <div id="selector-idiomas" class="dropdown-content">
+                    <button data-lang="ca">Català</button>
+                    <button data-lang="es">Castellano</button>
+                    <button data-lang="en">English</button>
+                </div>
+            </div>
+
+            <!-- Hamburger Icon -->
+            <button id="hamburger-menu" class="hamburger-menu" aria-label="Toggle Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ========================================
+         PAGE HERO
+    ========================================= -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">Edición e Integración de Vídeo</h1>
+            <p class="page-subtitle">Práctica 9: Visualización fluida y optimizada para la web.</p>
+        </div>
+    </section>
+
+    <!-- ========================================
+         MAIN CONTENT - Video Section
+    ========================================= -->
+    <main class="main-content">
+        <div class="container" style="padding: 60px 20px;">
+
+            <section class="video-section-wrapper" style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <h2 class="section-title">Proyecto Final de Vídeo</h2>
+                <p class="section-intro">
+                    Este vídeo ha sido editado con Kdenlive y exportado en formatos MP4 (H.264) y WebM (VP9) para
+                    garantizar la máxima compatibilidad y rendimiento.
+                </p>
+
+                <!-- Video Container with Custom Styling -->
+                <div class="video-container"
+                    style="margin-top: 40px; background: #000; padding: 10px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+
+                    <!-- 
+                         Video Tag Attributes Explanation:
+                         - controls: Allows user interaction (play/pause/volume).
+                         - poster: Image shown before video loads (images/caratula.png).
+                         - preload="metadata": Only loads metadata initially to save bandwidth.
+                    -->
+                    <video controls poster="images/caratula.png" preload="metadata" width="100%"
+                        style="display: block; width: 100%; height: auto; border-radius: 4px;">
+
+                        <!-- WebM Format (VP9) - High Efficiency -->
+                        <source src="videos/proyecto_web_final.webm" type="video/webm">
+
+                        <!-- MP4 Format (H.264) - Maximum Compatibility -->
+                        <source src="videos/proyecto_web_final.mp4" type="video/mp4">
+
+                        <!-- Fallback message -->
+                        <div style="color: white; padding: 20px;">
+                            Tu navegador no soporta la reproducción de video HTML5.
+                            Por favor, actualiza tu navegador.
+                        </div>
+                    </video>
+                </div>
+
+                <div class="video-info"
+                    style="margin-top: 30px; text-align: left; background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 4px solid #d4a520;">
+                    <h3 style="color: #c8102e; margin-bottom: 15px;">Detalles de la Optimización</h3>
+                    <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.8;">
+                        <li><strong>Resolución:</strong> HD 1080p a 25 fps.</li>
+                        <li><strong>Códecs:</strong> H.264 (MP4) y VP9 (WebM).</li>
+                        <li><strong>Bitrate:</strong> ajustado para web (aprox. 8 Mbps).</li>
+                        <li><strong>Atributos HTML:</strong> controls, poster, preload.</li>
+                    </ul>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- ========================================
+         FOOTER
+    ========================================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+
+                <!-- Footer column 1: About -->
+                <div class="footer-column">
+                    <h4 id="footer-about-h4">Catalunya Turismo</h4>
+                    <p id="footer-about-p">Descubre la magia del Mediterráneo, la riqueza cultural y la hospitalidad
+                        catalana.</p>
+                    <p id="footer-about-slogan" class="footer-slogan"><em>"Catalans i catalanes, sota la mateixa
+                            Senyera"</em></p>
+                </div>
+
+                <!-- Footer column 2: Quick Links -->
+                <div class="footer-column">
+                    <h4 id="footer-links-h4">Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a id="footer-nav-home" href="index.html#hero">Inicio</a></li>
+                        <li><a id="footer-nav-history" href="index.html#historia">Historia</a></li>
+                        <li><a id="footer-nav-destinations" href="index.html#destinos">Destinos</a></li>
+                        <li><a id="footer-nav-contact" href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer column 3: Contact Info -->
+                <div class="footer-column">
+                    <h4 id="footer-contact-h4">Contacto</h4>
+                    <ul class="footer-contact">
+                        <li>Tarragona, Catalunya, España</li>
+                        <li>+34 650 900 945</li>
+                        <li>ricardo@avila.ws</li>
+                    </ul>
+                </div>
+
+                <!-- Footer column 4: Social Media -->
+                <div class="footer-column">
+                    <h4 id="footer-follow-h4">Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-icon">
+                            <img src="images/facebook.svg" alt="Facebook" class="social-svg">
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-icon">
+                            <img src="images/instagram.svg" alt="Instagram" class="social-svg">
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-icon">
+                            <img src="images/twitter.svg" alt="Twitter" class="social-svg">
+                        </a>
+                        <a href="#" aria-label="YouTube" class="social-icon">
+                            <img src="images/youtube.svg" alt="YouTube" class="social-svg">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p id="footer-bottom-p">&copy; 2025 Catalunya Turismo · Diseñado por Ricardo Avila · ricardo@avila.ws
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
