@@ -155,6 +155,28 @@ ul {
   width: 60px;
   height: 60px;
   object-fit: contain;
+  /* Requisito 2.3: Aplicación de la animación */
+  animation: latidoCatalunya 4s infinite ease-in-out;
+  /* Un ciclo de 4 segundos, infinito y suave */
+}
+
+/* Requisito 2.2: Definición de @keyframes - Branding Dinámico */
+@keyframes latidoCatalunya {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(200, 16, 46, 0));
+  }
+
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(212, 165, 32, 0.4));
+    /* Resplandor dorado */
+  }
+
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(200, 16, 46, 0));
+  }
 }
 
 .logo-text {
@@ -163,7 +185,7 @@ ul {
   color: #c8102e;
 }
 
-/* Navigation menu */
+/* Navigation Menu */
 .main-nav {
   flex: 1;
   display: flex;
@@ -176,19 +198,51 @@ ul {
   align-items: center;
 }
 
+/* Main Navigation Links Styles */
 .nav-list a {
   font-size: 1rem;
   font-weight: 600;
   color: #333;
   padding: 8px 12px;
   border-radius: 4px;
-  transition: all 0.3s ease;
+  position: relative;
+  /* Requisito 1.1: Feedback de Estado (Links) - Transición suave */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Hover Effect - Requisito 1.1: Feedback de Estado */
 .nav-list a:hover {
   color: #c8102e;
-  background-color: #f9f9f9;
+  background-color: rgba(200, 16, 46, 0.05);
+  transform: translateY(-2px);
+  /* Sutil desplazamiento vertical */
 }
+
+/* Active State - Requisito 1.1 */
+.nav-list a.active {
+  color: #c8102e;
+  font-weight: 700;
+}
+
+/* Underline Animation for Links */
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0px;
+  left: 50%;
+  background-color: #c8102e;
+  /* Requisito 1.1: Transición combinada de ancho y posición */
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.nav-list a:hover::after,
+.nav-list a.active::after {
+  width: 80%;
+}
+
 
 /* Language button */
 .btn-language {
@@ -239,9 +293,17 @@ ul {
   display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
+/* Dropdown Content - Requisito 1.2: Desplegables Modernos */
 .dropdown-content {
-  display: none;
+  /* Previously display: none; - Changed for animation */
+  visibility: hidden;
+  opacity: 0;
+  /* Start slightly higher */
+  transform: translateY(-20px);
+
+  /* Transición combinada de opacidad y transformación */
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0.4s;
+
   position: absolute;
   right: 0;
   background-color: #fff;
@@ -251,7 +313,8 @@ ul {
   border-radius: 5px;
   overflow: hidden;
   top: 100%;
-  /* Position directly below */
+  margin-top: 10px;
+  /* Spacing from button */
 }
 
 /* Links/Buttons inside the dropdown */
@@ -267,7 +330,8 @@ ul {
   cursor: pointer;
   font-size: 0.95rem;
   font-family: inherit;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, padding-left 0.2s, color 0.2s;
+  /* Micro-interaction */
   border-bottom: 1px solid #f1f1f1;
 }
 
@@ -277,14 +341,20 @@ ul {
 
 /* Change color of dropdown links on hover */
 .dropdown-content button:hover {
-  background-color: #f1f1f1;
+  background-color: #f9f9f9;
   color: #c8102e;
+  padding-left: 20px;
+  /* Subtle movement on hover */
 }
 
 /* Show the dropdown menu on hover */
 .language-dropdown:hover .dropdown-content {
-  display: block;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  /* Move to natural position */
 }
+
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .language-dropdown:hover .dropbtn {
@@ -508,7 +578,8 @@ ul {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid #c8102e; /* Red accent */
+  border-left: 4px solid #c8102e;
+  /* Red accent */
 }
 
 .audio-player-container h4 {
@@ -522,7 +593,8 @@ ul {
 }
 
 .control-btn {
-  background-color: #d4a520; /* Gold */
+  background-color: #d4a520;
+  /* Gold */
   color: #fff;
   border: none;
   width: 50px;
@@ -537,7 +609,8 @@ ul {
 }
 
 .control-btn:hover {
-  background-color: #b8941c; /* Darker Gold */
+  background-color: #b8941c;
+  /* Darker Gold */
 }
 
 .control-btn .fa-pause {
@@ -557,7 +630,8 @@ ul {
 .provincias-wrapper {
   padding: 60px 0;
   background-color: #fff;
-  text-align: center; /* Center align the content */
+  text-align: center;
+  /* Center align the content */
 }
 
 .provincias-wrapper h3 {
@@ -568,12 +642,15 @@ ul {
 
 .tabla-provincias {
   width: 100%;
-  max-width: 900px; /* Limit table width */
-  margin: 0 auto; /* Center the table */
+  max-width: 900px;
+  /* Limit table width */
+  margin: 0 auto;
+  /* Center the table */
   border-collapse: collapse;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  overflow: hidden; /* Ensures border-radius is applied to corners */
+  overflow: hidden;
+  /* Ensures border-radius is applied to corners */
 }
 
 .tabla-provincias caption {
@@ -591,21 +668,25 @@ ul {
 }
 
 .tabla-provincias thead {
-  background-color: #c8102e; /* Red from Catalan flag */
+  background-color: #c8102e;
+  /* Red from Catalan flag */
   color: #fff;
   font-weight: 600;
 }
 
 .tabla-provincias thead th {
-  border-bottom: 2px solid #a00d25; /* Darker red */
+  border-bottom: 2px solid #a00d25;
+  /* Darker red */
 }
 
 .tabla-provincias tbody tr:nth-child(even) {
-  background-color: #f9f9f9; /* Light grey for alternating rows */
+  background-color: #f9f9f9;
+  /* Light grey for alternating rows */
 }
 
 .tabla-provincias tbody tr:hover {
-  background-color: #f1f1f1; /* Highlight on hover */
+  background-color: #f1f1f1;
+  /* Highlight on hover */
 }
 
 /* ===============================================
