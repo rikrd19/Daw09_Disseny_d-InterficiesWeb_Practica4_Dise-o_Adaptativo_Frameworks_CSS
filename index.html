@@ -9,6 +9,8 @@
     content="Descubre Catalunya - Turismo cultural y experiencias únicas en el corazón del Mediterráneo" />
   <title>Descubre Catalunya - Turismo Cultural</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- jQuery UI CSS -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -173,7 +175,6 @@
 
       <!-- Centered Audio Player -->
       <div class="audio-player-wrapper">
-        <!-- Reproductor de Audio Personalizado -->
         <div class="audio-player-container">
           <h4 id="audio-title">Himne de Catalunya: Els Segadors</h4>
           <audio id="himne-audio">
@@ -232,6 +233,23 @@
           </tbody>
         </table>
       </div>
+    </section>
+
+    <!-- Misión 2: Panel de "Mis Destinos Favoritos" -->
+    <section id="favoritos-section" class="favoritos-section" style="background: #f9f9f9; padding: 40px 0;">
+      <div class="container">
+        <h2 class="section-title">Mis Destinos Favoritos</h2>
+        <p class="section-intro">Crea tu lista personalizada de lugares que quieres visitar.</p>
+
+        <div class="favoritos-controls" style="display: flex; gap: 10px; margin-bottom: 20px;">
+          <input type="text" id="nuevo-destino" placeholder="Escribe un destino (ej: Costa Brava)"
+            style="flex-grow: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+          <button id="btn-anadir" class="btn btn-primary">Añadir a la lista</button>
+        </div>
+
+        <ul id="lista-favoritos" style="list-style: none; padding: 0;">
+          <!-- Los elementos se añadirán dinámicamente aquí -->
+        </ul>
       </div>
     </section>
 
@@ -251,12 +269,9 @@
           </p>
         </div>
 
-        <!-- Grid/Flex container for destination cards -->
         <div class="destinos-grid">
-          <!-- Card 1: Barcelona -->
           <article class="destino-card">
             <div class="card-image">
-              <!-- Real image - Sagrada Familia de Gaudí -->
               <img src="images/hero-sagrada-familia_afinity.png"
                 alt="Barcelona - Sagrada Familia de Gaudí, obra maestra del modernismo" loading="lazy" />
             </div>
@@ -275,10 +290,8 @@
             </div>
           </article>
 
-          <!-- Card 2: Pirineos -->
           <article class="destino-card">
             <div class="card-image">
-              <!-- Real image - Pirineus -->
               <img src="images/pirineus.jpg" alt="Pirineos Catalanes - Montañas y naturaleza" loading="lazy" />
             </div>
             <div class="card-content">
@@ -296,10 +309,8 @@
             </div>
           </article>
 
-          <!-- Card 3: Costa Dorada (Tarragona) -->
           <article class="destino-card">
             <div class="card-image">
-              <!-- Real image - Costa Dorada -->
               <img src="images/costa_dorada1.jpg" alt="Costa Dorada - Playas doradas de Tarragona" loading="lazy" />
             </div>
             <div class="card-content">
@@ -317,10 +328,8 @@
             </div>
           </article>
 
-          <!-- Card 4: Patrimonio Histórico -->
           <article class="destino-card">
             <div class="card-image">
-              <!-- Real image - Restos históricos -->
               <img src="images/restos_Historicos.jpg" alt="Patrimonio histórico de Catalunya" loading="lazy" />
             </div>
             <div class="card-content">
@@ -340,10 +349,8 @@
             </div>
           </article>
 
-          <!-- Card 5: Deportes de Montaña -->
           <article class="destino-card">
             <div class="card-image">
-              <!-- Real image - Mountain sports -->
               <img src="images/deporte_montana.jpg" alt="Deportes de montaña en Catalunya" loading="lazy" />
             </div>
             <div class="card-content">
@@ -361,10 +368,8 @@
             </div>
           </article>
 
-          <!-- Card 6: Gastronomía -->
           <article class="destino-card">
             <div class="card-image">
-              <!-- Real image - Gastronomía -->
               <img src="images/gastronomia.jpg" alt="Gastronomía catalana" loading="lazy" />
             </div>
             <div class="card-content">
@@ -393,19 +398,16 @@
       <div class="cta-overlay">
         <div class="container">
           <div class="cta-content">
-            <h2 id="cta-title" class="cta-title">
-              ¿Listo para tu aventura catalana?
-            </h2>
+            <h2 id="cta-title" class="cta-title">¿Listo para tu aventura catalana?</h2>
             <p id="cta-text" class="cta-text">
               Planifica tu viaje y descubre todo lo que Catalunya tiene para
               ofrecerte. Historia, cultura, gastronomía y paisajes
               inolvidables te esperan.
             </p>
 
-            <!-- Strong CTAs -->
             <div class="cta-buttons">
               <a id="cta-btn-plan" href="contacto.html" class="btn btn-large btn-primary">Planifica tu Viaje</a>
-              <a id="cta-btn-learn" href="#historia" class="btn btn-large btn-secondary">Conoce Más</a>
+              <a id="cta-btn-know" href="#historia" class="btn btn-large btn-secondary">Conoce Más</a>
             </div>
           </div>
         </div>
@@ -413,14 +415,9 @@
     </section>
   </main>
 
-  <!-- ========================================
-         SECTION 6: FOOTER
-         Links, social media, copyright
-    ========================================= -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
-        <!-- Footer column 1: About -->
         <div class="footer-column">
           <h4 id="footer-about-h4">Catalunya Turismo</h4>
           <p id="footer-about-p">
@@ -432,22 +429,16 @@
           </p>
         </div>
 
-        <!-- Footer column 2: Quick Links -->
         <div class="footer-column">
           <h4 id="footer-links-h4">Enlaces Rápidos</h4>
           <ul class="footer-links">
             <li><a id="footer-nav-home" href="#hero">Inicio</a></li>
             <li><a id="footer-nav-history" href="#historia">Historia</a></li>
-            <li>
-              <a id="footer-nav-destinations" href="#destinos">Destinos</a>
-            </li>
-            <li>
-              <a id="footer-nav-contact" href="contacto.html">Contacto</a>
-            </li>
+            <li><a id="footer-nav-destinations" href="#destinos">Destinos</a></li>
+            <li><a id="footer-nav-contact" href="contacto.html">Contacto</a></li>
           </ul>
         </div>
 
-        <!-- Footer column 3: Contact Info -->
         <div class="footer-column">
           <h4 id="footer-contact-h4">Contacto</h4>
           <ul class="footer-contact">
@@ -457,7 +448,6 @@
           </ul>
         </div>
 
-        <!-- Footer column 4: Social Media -->
         <div class="footer-column">
           <h4 id="footer-follow-h4">Síguenos</h4>
           <div class="social-links">
@@ -477,7 +467,6 @@
         </div>
       </div>
 
-      <!-- Copyright -->
       <div class="footer-bottom">
         <p id="footer-bottom-p">
           &copy; 2025 Catalunya Turismo · Diseñado por Ricardo Avila ·
@@ -486,7 +475,9 @@
       </div>
     </div>
   </footer>
-  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <script src="jquery.js"></script>
 </body>
 
 </html>
