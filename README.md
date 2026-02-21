@@ -162,11 +162,13 @@ En esta sección se detalla la implementación de las misiones de jQuery.
 ### Misión 1: Selección de Elementos
 - **¿Qué hace?**: Aplica cambios visuales automáticos al cargar la página para resaltar contenidos clave.
 - **¿Dónde?**: Implementado en el inicio de `jquery.js`.
-- **Selectores usados**:
-  - Por etiqueta: `$('.historia-section h3')`
-  - Por clase: `$('.destino-card')`
-  - Por ID: `$('#hero h1')`
-  - Avanzado: `$('.nav-list li:first a')`
+- **Selectores usados**: Tag, Clase, ID y avanzado `:first`.
+
+### Misión 2: Adición y Supresión del DOM
+- **¿Qué hace?**: Permite gestionar una lista dinámica de "Destinos Favoritos".
+- **¿Dónde?**: Nueva sección en el centro de `index.html` y lógica en `jquery.js`.
+- **Métodos usados**: `.append()` para añadir y `.remove()` para eliminar.
+- **Funcionalidad Extra**: Uso de **eventos delegados** para asegurar que los botones "Eliminar" funcionen en elementos creados en tiempo real.
 
 ---
 

@@ -196,6 +196,24 @@
       </div>
     </section>
 
+    <!-- Misión 2: Panel de "Mis Destinos Favoritos" -->
+    <section id="favoritos-section" class="favoritos-section" style="background: #f9f9f9; padding: 40px 0;">
+      <div class="container">
+        <h2 class="section-title">Mis Destinos Favoritos</h2>
+        <p class="section-intro">Crea tu lista personalizada de lugares que quieres visitar.</p>
+
+        <div class="favoritos-controls" style="display: flex; gap: 10px; margin-bottom: 20px;">
+          <input type="text" id="nuevo-destino" placeholder="Escribe un destino (ej: Costa Brava)"
+            style="flex-grow: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+          <button id="btn-anadir" class="btn btn-primary">Añadir a la lista</button>
+        </div>
+
+        <ul id="lista-favoritos" style="list-style: none; padding: 0;">
+          <!-- Los elementos se añadirán dinámicamente aquí -->
+        </ul>
+      </div>
+    </section>
+
     <!-- ========================================
              SECTION 4: DESTINATIONS GRID
              Main tourism content with cards
