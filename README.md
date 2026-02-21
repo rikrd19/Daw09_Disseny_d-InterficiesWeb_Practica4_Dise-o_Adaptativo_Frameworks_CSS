@@ -179,6 +179,10 @@ En esta sección se detalla la implementación de las misiones de jQuery.
 - **Slide**: El panel de favoritos se desliza suavemente con `.slideToggle()`.
 - **Animate**: El título del Hero se anima con `fontSize` y `opacity` al cargar la página.
 
+### Misión 5: Conectores (jQuery UI)
+- **Datepicker**: Implementado en el formulario de contacto para seleccionar la fecha del viaje con un calendario interactivo.
+- **Dialog**: Ventana de confirmación modal que aparece al intentar eliminar un destino de favoritos, mejorando la seguridad y experiencia del usuario.
+
 ---
 
 **Diseñado por Ricardo Avila** | ricardo@avila.ws
