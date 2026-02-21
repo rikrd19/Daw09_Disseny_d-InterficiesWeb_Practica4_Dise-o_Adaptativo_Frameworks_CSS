@@ -14,13 +14,16 @@
 $(function() {
     console.log("Misiones 1-5 cargadas correctamente.");
     
-    // Misión 1: Selección de Elementos
+    // Misión 1: Selección de Elementos y Cambios Visuales
+    // -------------------------------------------------------------
     $('.historia-section h3').css('color', '#c8102e'); 
     $('.destino-card').css('border-bottom', '4px solid #d4a520');
     $('#hero h1').css('text-shadow', '2px 2px 10px rgba(0,0,0,0.5)');
-    $('.nav-list li:first a').css('color', '#d4a520');
+    
+    // Usamos el ID para asegurar que el enlace de Inicio sea dorado siempre
+    $('#nav-home').css('color', '#d4a520');
 
-    // Misión 2: Adición y Supresión del DOM
+    // Misión 2: Adición y Supresión del DOM (Favoritos)
     // -------------------------------------------------------------
     $('#btn-anadir').on('click', function() {
         const destino = $('#nuevo-destino').val().trim();
@@ -41,7 +44,6 @@ $(function() {
     $('#lista-favoritos').on('click', '.btn-eliminar', function() {
         const $li = $(this).parent();
         
-        // Creamos el div del diálogo dinámicamente si no existe
         if ($('#dialog-confirm').length === 0) {
             $('<div id="dialog-confirm" title="¿Eliminar destino?"><p>¿Estás seguro de que quieres eliminar este destino de tu lista de favoritos?</p></div>').appendTo('body');
         }
@@ -65,44 +67,55 @@ $(function() {
 
     // Misión 3 y 4: Eventos y Animaciones
     // -------------------------------------------------------------
+    
+    // Toggle del Panel de Favoritos
+    if ($('.favoritos-controls').length > 0) {
+        $('<button id="toggle-favoritos" class="btn btn-secondary" style="margin-bottom: 20px; width: 100%;">Ocultar Panel Favoritos</button>')
+            .insertBefore('.favoritos-controls');
 
-    $('<button id="toggle-favoritos" class="btn btn-secondary" style="margin-bottom: 20px;">Ocultar Panel Favoritos</button>')
-        .insertBefore('.favoritos-controls');
-
-    $('#toggle-favoritos').on('click', function() {
-        $('.favoritos-controls, #lista-favoritos').slideToggle(600, function() {
-            const isVisible = $('.favoritos-controls').is(':visible');
-            $('#toggle-favoritos').text(isVisible ? "Ocultar Panel Favoritos" : "Mostrar Panel Favoritos");
+        $('#toggle-favoritos').on('click', function() {
+            $('.favoritos-controls, #lista-favoritos').slideToggle(600, function() {
+                const isVisible = $('.favoritos-controls').is(':visible');
+                $('#toggle-favoritos').text(isVisible ? "Ocultar Panel Favoritos" : "Mostrar Panel Favoritos");
+            });
         });
-    });
+    }
 
+    // Efecto de teclado ESC
     $('#nuevo-destino').on('keyup', function(e) {
         if (e.key === "Escape") {
             $(this).val('');
-            $('<div id="feedback-teclado" style="color: #d4a520; margin-top: 5px;">Campo limpiado con éxito.</div>')
+            $('<div id="feedback-teclado" style="color: #d4a520; margin-top: 5px; font-weight: bold;">Campo limpiado con éxito.</div>')
                 .insertAfter(this).fadeOut(2000, function() { $(this).remove(); });
         }
     });
 
+    // Efecto de foco
     $('#nuevo-destino').on('focus', function() {
         $(this).css('background-color', '#fff9e6');
     }).on('blur', function() {
         $(this).css('background-color', 'white');
     });
 
+    // Animación del Hero
     $('.hero-title').animate({
         fontSize: "4rem",
         opacity: 1
     }, 1500);
 
-    // Misión 5: Conectores (jQuery UI)
+    // Misión 5: Conectores (jQuery UI) - Datepicker
     // -------------------------------------------------------------
-    
-    // 5.1 Datepicker: Seleccionar fecha tentativa de viaje en el formulario de contacto
-    if ($('#destino').length > 0) {
-        // Insertamos el campo de fecha antes del botón de envío
-        $('<div class="form-group"><label for="datepicker">Fecha Tentativa de Viaje</label><input type="text" id="datepicker" placeholder="Haz clic para seleccionar fecha" style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 100%;"></div>')
-            .insertBefore('.contact-form button[type="submit"]');
+    if ($('.contact-form').length > 0) {
+        // Aseguramos que el campo de fecha se inyecte si no existe
+        if ($('#datepicker').length === 0) {
+            const dateField = `
+                <div class="form-group">
+                    <label id="label-date" for="datepicker">Fecha Tentativa de Viaje *</label>
+                    <input type="text" id="datepicker" name="fecha" placeholder="Selecciona una fecha" required aria-required="true" 
+                           style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; width: 100%;">
+                </div>`;
+            $(dateField).insertBefore('#btn-send').parent().find('.form-group:last').css('margin-bottom', '15px');
+        }
         
         $('#datepicker').datepicker({
             dateFormat: "dd/mm/yy",
@@ -111,5 +124,54 @@ $(function() {
             monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
         });
     }
+
+    // --- INTEGRACIÓN DE LÓGICA DE PRÁCTICAS ANTERIORES (TRADUCCIÓN Y MENÚ) ---
+    // -------------------------------------------------------------
+    
+    // Menú Hamburguesa con jQuery
+    $('#hamburger-menu').on('click', function() {
+        const $nav = $('#main-nav, #main-nav-links');
+        $nav.toggleClass('is-active');
+        const expanded = $(this).attr('aria-expanded') === 'true';
+        $(this).attr('aria-expanded', !expanded);
+    });
+
+    $('nav a').on('click', function() {
+        $('#main-nav, #main-nav-links').removeClass('is-active');
+        $('#hamburger-menu').attr('aria-expanded', 'false');
+    });
+
+    // Lógica de Traducción (Migrada de script.js)
+    const translations = {
+        "nav-home": { es: "Inicio", ca: "Inici", en: "Home" },
+        "nav-history": { es: "Historia", ca: "Història", en: "History" },
+        "nav-destinations": { es: "Destinos", ca: "Destins", en: "Destinations" },
+        "nav-contact": { es: "Contacto", ca: "Contacte", en: "Contact" },
+        "contact-title": { es: "Contacta con Nosotros", ca: "Contacta amb Nosaltres", en: "Contact Us" },
+        "label-date": { es: "Fecha Tentativa de Viaje *", ca: "Data Tentativa de Viatge *", en: "Tentative Travel Date *" }
+        // Se pueden añadir más si es necesario, pero estas son las críticas.
+    };
+
+    function setLanguage(lang) {
+        for (const id in translations) {
+            const $el = $(`#${id}`);
+            if ($el.length > 0) {
+                $el.html(translations[id][lang]);
+            }
+        }
+        localStorage.setItem("userLang", lang);
+        
+        // Mantener el color dorado tras traducir
+        $('#nav-home').css('color', '#d4a520');
+    }
+
+    $('#selector-idiomas').on('click', 'button', function() {
+        const lang = $(this).data('lang');
+        if (lang) setLanguage(lang);
+    });
+
+    // Cargar preferencia guardada
+    const savedLang = localStorage.getItem("userLang") || "es";
+    setLanguage(savedLang);
 
 });
