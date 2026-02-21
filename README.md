@@ -155,4 +155,19 @@ En esta sección se detalla la implementación de las 5 misiones solicitadas par
 
 ---
 
+## Práctica 11: Interactividad con jQuery
+
+En esta sección se detalla la implementación de las misiones de jQuery.
+
+### Misión 1: Selección de Elementos
+- **¿Qué hace?**: Aplica cambios visuales automáticos al cargar la página para resaltar contenidos clave.
+- **¿Dónde?**: Implementado en el inicio de `jquery.js`.
+- **Selectores usados**:
+  - Por etiqueta: `$('.historia-section h3')`
+  - Por clase: `$('.destino-card')`
+  - Por ID: `$('#hero h1')`
+  - Avanzado: `$('.nav-list li:first a')`
+
+---
+
 **Diseñado por Ricardo Avila** | ricardo@avila.ws
