@@ -166,9 +166,18 @@ En esta sección se detalla la implementación de las misiones de jQuery.
 
 ### Misión 2: Adición y Supresión del DOM
 - **¿Qué hace?**: Permite gestionar una lista dinámica de "Destinos Favoritos".
-- **¿Dónde?**: Nueva sección en el centro de `index.html` y lógica en `jquery.js`.
-- **Métodos usados**: `.append()` para añadir y `.remove()` para eliminar.
-- **Funcionalidad Extra**: Uso de **eventos delegados** para asegurar que los botones "Eliminar" funcionen en elementos creados en tiempo real.
+- **¿Dónde?**: Nueva sección en `index.html` y lógica en `jquery.js`.
+- **Métodos usados**: `.append()` y `.remove()`.
+
+### Misión 3: Gestión de Eventos
+- **Evento de ratón**: Click en el botón de toggle para desplegar el panel.
+- **Evento de teclado**: Tecla `ESC` para limpiar el input con feedback en pantalla.
+- **Tercer evento**: Foco (`focus`) en el input para resaltar el campo usando `$(this)`.
+
+### Misión 4: Animaciones y Transiciones
+- **Fade**: Los elementos de la lista aparecen y desaparecen con `.fadeIn()` y `.fadeOut()`.
+- **Slide**: El panel de favoritos se desliza suavemente con `.slideToggle()`.
+- **Animate**: El título del Hero se anima con `fontSize` y `opacity` al cargar la página.
 
 ---
 
