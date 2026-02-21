@@ -135,4 +135,24 @@ Colores principales inspirados en la senyera catalana:
 
 ---
 
+## Práctica 11: Interactividad con jQuery
+
+En esta sección se detalla la implementación de las 5 misiones solicitadas para mejorar la interactividad de la web mediante jQuery y jQuery UI.
+
+### Estructura de Archivos
+- **jquery.js**: Contiene toda la lógica de la práctica (separado de los HTML).
+- **index.html / contacto.html**: Integran jQuery 3.7.1 y jQuery UI 1.13.2 vía CDN.
+
+### Detalle de las Misiones
+
+| Misión | Implementación | Funcionalidad |
+|--------|----------------|--------------|
+| **1. Selección** | `$(tag)`, `$(.clase)`, `$(#id)`, `$(:first)` | Cambios visuales automáticos en títulos, tarjetas e item del menú al cargar. |
+| **2. DOM** | `.append()`, `.remove()`, eventos delegados | Sistema de "Destinos Favoritos" que permite añadir ítems y borrarlos dinámicamente. |
+| **3. Eventos** | `.on('click')`, `.on('keyup')`, `.on('focus')` | Alerta al pulsar el logo, limpiar campo con ESC y feedback visual en inputs. |
+| **4. Animaciones** | `.fadeIn()`, `.slideToggle()`, `.animate()` | Los favoritos aparecen con fundido, el panel se desliza y el título crece suavemente. |
+| **5. jQuery UI** | `datepicker()`, `dialog()` | Calendario en el formulario de contacto y ventana de confirmación antes de eliminar. |
+
+---
+
 **Diseñado por Ricardo Avila** | ricardo@avila.ws
