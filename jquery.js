@@ -14,14 +14,29 @@
 $(function() {
     console.log("Misiones 1-5 cargadas correctamente.");
     
+    // Función para actualizar el color dorado según la página activa
+    function updateActiveLink() {
+        const path = window.location.pathname;
+        const isContacto = path.includes('contacto.html');
+        
+        // Limpiamos estilos previos
+        $('#nav-home, #nav-contact').css('color', '');
+        
+        if (isContacto) {
+            $('#nav-contact').css('color', '#d4a520'); // Dorado en Contacto
+        } else {
+            $('#nav-home').css('color', '#d4a520');    // Dorado en Inicio
+        }
+    }
+
     // Misión 1: Selección de Elementos y Cambios Visuales
     // -------------------------------------------------------------
     $('.historia-section h3').css('color', '#c8102e'); 
     $('.destino-card').css('border-bottom', '4px solid #d4a520');
     $('#hero h1').css('text-shadow', '2px 2px 10px rgba(0,0,0,0.5)');
     
-    // Usamos el ID para asegurar que el enlace de Inicio sea dorado siempre
-    $('#nav-home').css('color', '#d4a520');
+    // Aplicamos el resaltado inicial dinámico
+    updateActiveLink();
 
     // Misión 2: Adición y Supresión del DOM (Favoritos)
     // -------------------------------------------------------------
@@ -106,7 +121,6 @@ $(function() {
     // Misión 5: Conectores (jQuery UI) - Datepicker
     // -------------------------------------------------------------
     if ($('.contact-form').length > 0) {
-        // Aseguramos que el campo de fecha se inyecte si no existe
         if ($('#datepicker').length === 0) {
             const dateField = `
                 <div class="form-group">
@@ -141,7 +155,7 @@ $(function() {
         $('#hamburger-menu').attr('aria-expanded', 'false');
     });
 
-    // Lógica de Traducción (Migrada de script.js)
+    // Lógica de Traducción
     const translations = {
         "nav-home": { es: "Inicio", ca: "Inici", en: "Home" },
         "nav-history": { es: "Historia", ca: "Història", en: "History" },
@@ -149,7 +163,6 @@ $(function() {
         "nav-contact": { es: "Contacto", ca: "Contacte", en: "Contact" },
         "contact-title": { es: "Contacta con Nosotros", ca: "Contacta amb Nosaltres", en: "Contact Us" },
         "label-date": { es: "Fecha Tentativa de Viaje *", ca: "Data Tentativa de Viatge *", en: "Tentative Travel Date *" }
-        // Se pueden añadir más si es necesario, pero estas son las críticas.
     };
 
     function setLanguage(lang) {
@@ -161,8 +174,8 @@ $(function() {
         }
         localStorage.setItem("userLang", lang);
         
-        // Mantener el color dorado tras traducir
-        $('#nav-home').css('color', '#d4a520');
+        // Mantener el color dorado correcto tras traducir
+        updateActiveLink();
     }
 
     $('#selector-idiomas').on('click', 'button', function() {
