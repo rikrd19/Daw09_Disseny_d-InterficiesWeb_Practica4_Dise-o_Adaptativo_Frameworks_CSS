@@ -1,6 +1,6 @@
 /**
- * Practice 13 — interactive content (Chart.js block A).
- * Runs in an IIFE to avoid polluting the global scope.
+ * Práctica 13 — contenido interactivo (Bloque A: Chart.js).
+ * Se ejecuta en un IIFE para evitar contaminar el scope global.
  */
 (function () {
   'use strict';
