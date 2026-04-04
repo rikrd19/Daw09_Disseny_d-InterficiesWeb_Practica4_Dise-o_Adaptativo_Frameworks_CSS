@@ -636,7 +636,7 @@ ul {
   padding: 0 10px;
 }
 
-/* Compact audio column: centered, does not stretch to match video height */
+/* Compacto audio - Columna: centrada, no se extiende para coincidir con la altura del vídeo */
 .multimedia-audio-col {
   flex: 0 0 auto;
   display: flex;
@@ -1207,11 +1207,17 @@ ul {
    12. VERSION-SPECIFIC LAYOUTS - FLEXBOX VERSION
    =============================================== */
 
-/* VERSION: FLEXBOX - Use flex-wrap and justify-content */
+.destinos-section {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+/* VERSION: FLEXBOX - equal-height cards, fixed image band (object-fit: cover) */
 .destinos-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch;
   gap: 30px;
 }
 
@@ -1219,6 +1225,40 @@ ul {
   flex: 1 1 calc(50% - 30px);
   min-width: 280px;
   max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.destino-card .card-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background-color: #e8e8e8;
+}
+
+.destino-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.destino-card .card-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  min-height: 0;
+}
+
+.destino-card .card-features {
+  margin-top: auto;
 }
 
 /* For 3 columns on large screens (desktop) */
@@ -1245,5 +1285,9 @@ ul {
 
   .destino-card {
     flex: 1 1 100%;
+  }
+
+  .destino-card .card-image {
+    height: 200px;
   }
 }

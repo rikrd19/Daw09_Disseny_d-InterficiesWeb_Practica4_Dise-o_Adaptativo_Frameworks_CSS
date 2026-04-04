@@ -61,10 +61,12 @@ $(function() {
         "destinations-title": { es: "Explora Nuestros Destinos", ca: "Explora els Nostres Destins", en: "Explore Our Destinations" },
         "destinations-intro": { es: "De la vibrante Barcelona a las playas de la Costa Brava, cada rincón de Catalunya cuenta una historia única.", ca: "De la vibrant Barcelona a les platges de la Costa Brava, cada racó de Catalunya explica una història única.", en: "From vibrant Barcelona to the beaches of Costa Brava, every corner of Catalonia tells a unique story." },
 
-        // Practice 13 — Chart section (Block A)
+        // Practica 13 — Chart section (Block A)
         "js-interact-v13-chart-heading": { es: "Turismo en cifras", ca: "Turisme en xifres", en: "Tourism in figures" },
         "js-interact-v13-chart-intro": { es: "Visualización ilustrativa del interés turístico por mes. Usa los botones para cambiar el tipo de gráfico o el conjunto de datos.", ca: "Visualització il·lustrativa de l'interès turístic per mes. Utilitza els botons per canviar el tipus de gràfic o el conjunt de dades.", en: "Illustrative view of monthly tourism interest. Use the buttons to switch chart type or dataset." },
         "js-interact-v13-cycle-data": { es: "Alternar temporada / perfil", ca: "Alternar temporada / perfil", en: "Switch season / profile" },
+        "js-interact-v13-canvas-heading": { es: "Experiencia interactiva", ca: "Experiència interactiva", en: "Interactive experience" },
+        "js-interact-v13-canvas-intro": { es: "Partículas que reaccionan al cursor (Canvas 2D y requestAnimationFrame). Pasa el ratón por el recuadro.", ca: "Partícules que reaccionen al cursor (Canvas 2D i requestAnimationFrame). Passa el ratolí pel requadre.", en: "Particles react to the cursor (Canvas 2D and requestAnimationFrame). Move the pointer over the frame." },
 
         // Cards
         "card1-title": { es: "Barcelona", ca: "Barcelona", en: "Barcelona" },
