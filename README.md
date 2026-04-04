@@ -185,4 +185,48 @@ En esta sección se detalla la implementación de las misiones de jQuery.
 
 ---
 
+## Práctica 13: Integración de contenidos interactivos
+
+### Bloque A (Chart.js) — anclajes en `index.html`
+
+| Uso | Selector / ID |
+|-----|-----------------|
+| Sección del gráfico | `#datos-interactivos-pr13`, clases `.js-interact-v13`, `.js-interact-v13-chart-section` |
+| Título accesible | `#js-interact-v13-chart-heading` |
+| Texto introductorio | `#js-interact-v13-chart-intro` |
+| Lienzo del gráfico | `#js-interact-v13-chart-canvas` |
+| Botón tipo barras / líneas | `#js-interact-v13-toggle-chart-type` |
+| Botón alternar datos | `#js-interact-v13-cycle-data` |
+| Navegación | `#nav-datos-pr13` → `#datos-interactivos-pr13` |
+
+### Bloque B (Anime.js)
+
+| Uso | Selector / ID |
+|-----|----------------|
+| Tarjetas con entrada escalonada | `#destinos .destino-card` (clase temporal `.js-interact-v13-card-pending` hasta animar) |
+| Microinteracciones | `a.btn-primary`, `a.btn-secondary`, `button.btn-primary`, `button.btn-secondary` y hover en tarjetas de destino |
+| Accesibilidad | Si `prefers-reduced-motion: reduce`, no se ejecutan animaciones Anime.js |
+
+### Bloque C (Canvas + requestAnimationFrame)
+
+| Uso | Selector / ID |
+|-----|----------------|
+| Sección | `#canvas-interactivo-pr13`, `.js-interact-v13-canvas-section` |
+| Título / intro | `#js-interact-v13-canvas-heading`, `#js-interact-v13-canvas-intro` |
+| Contenedor y lienzo | `.js-interact-v13-particles-shell`, `#js-interact-v13-particles-canvas` |
+
+### Bloque D (arquitectura)
+
+- Todo el JS de la práctica 13 está en **`js/interactividad_practica13.js`** en **tres IIFE** independientes (Chart, Anime, Canvas) sin variables globales.
+- Estilos específicos bajo prefijo **`.js-interact-v13`** en **`css/interactividad_practica13.css`**.
+
+### Librerías externas (CDN)
+
+| Librería | URL |
+|----------|-----|
+| Chart.js 4.4.1 | `https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js` |
+| Anime.js 3.2.2 | `https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js` |
+
+---
+
 **Diseñado por Ricardo Avila** | ricardo@avila.ws

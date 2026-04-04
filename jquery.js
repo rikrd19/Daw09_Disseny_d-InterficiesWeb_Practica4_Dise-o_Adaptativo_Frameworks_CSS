@@ -20,6 +20,7 @@ $(function() {
         "nav-home": { es: "Inicio", ca: "Inici", en: "Home" },
         "nav-history": { es: "Historia", ca: "Història", en: "History" },
         "nav-destinations": { es: "Destinos", ca: "Destins", en: "Destinations" },
+        "nav-datos-pr13": { es: "Datos", ca: "Dades", en: "Insights" },
         "nav-contact": { es: "Contacto", ca: "Contacte", en: "Contact" },
         "dropbtn": { es: "Idioma ▼", ca: "Idioma ▼", en: "Language ▼" },
 
@@ -37,6 +38,8 @@ $(function() {
         "history-quote": { es: '"El corazón catalán late en estos colores"', ca: '"El cor català batega en aquests colors"', en: '"The Catalan heart beats in these colors"' },
         "history-p3": { es: "Ya a mediados del siglo XVI, el historiador valenciano Pere Antoni Beuter narra la leyenda de <em>Wifredo el Velloso</em> y los dedos de sangre en su Crónica General de España. Posteriormente, en un poema de 1644, Francesc Fontanella aludía a las barras:", ca: "Ja a mitjans del segle XVI, l'historiador valencià Pere Antoni Beuter narra la llegenda de <em>Guifré el Pilós</em> i els dits de sang a la seva Crònica General d'Espanya. Posteriorment, en un poema de 1644, Francesc Fontanella al·ludia a les barres:", en: "By the mid-16th century, the Valencian historian Pere Antoni Beuter narrates the legend of <em>Wilfred the Hairy</em> and the bloodied fingers in his General Chronicle of Spain. Later, in a 1644 poem, Francesc Fontanella alluded to the bars:" },
         "audio-title": { es: "Himno de Catalunya: Els Segadors", ca: "Himne de Catalunya: Els Segadors", en: "Anthem of Catalonia: Els Segadors" },
+        "video-proyecto-title": { es: "Vídeo del proyecto", ca: "Vídeo del projecte", en: "Project video" },
+        "video-proyecto-desc": { es: "Mismo vídeo optimizado que en la página de integración (WebM + MP4).", ca: "El mateix vídeo optimitzat que a la pàgina d'integració (WebM + MP4).", en: "Same optimized video as on the integration page (WebM + MP4)." },
 
         // Fact Cards
         "fact-patrimonio-h4": { es: "Patrimonio", ca: "Patrimoni", en: "Heritage" },
@@ -57,6 +60,13 @@ $(function() {
         // Destinations Section
         "destinations-title": { es: "Explora Nuestros Destinos", ca: "Explora els Nostres Destins", en: "Explore Our Destinations" },
         "destinations-intro": { es: "De la vibrante Barcelona a las playas de la Costa Brava, cada rincón de Catalunya cuenta una historia única.", ca: "De la vibrant Barcelona a les platges de la Costa Brava, cada racó de Catalunya explica una història única.", en: "From vibrant Barcelona to the beaches of Costa Brava, every corner of Catalonia tells a unique story." },
+
+        // Practica 13 — Chart section (Block A)
+        "js-interact-v13-chart-heading": { es: "Turismo en cifras", ca: "Turisme en xifres", en: "Tourism in figures" },
+        "js-interact-v13-chart-intro": { es: "Visualización ilustrativa del interés turístico por mes. Usa los botones para cambiar el tipo de gráfico o el conjunto de datos.", ca: "Visualització il·lustrativa de l'interès turístic per mes. Utilitza els botons per canviar el tipus de gràfic o el conjunt de dades.", en: "Illustrative view of monthly tourism interest. Use the buttons to switch chart type or dataset." },
+        "js-interact-v13-cycle-data": { es: "Alternar temporada / perfil", ca: "Alternar temporada / perfil", en: "Switch season / profile" },
+        "js-interact-v13-canvas-heading": { es: "Experiencia interactiva", ca: "Experiència interactiva", en: "Interactive experience" },
+        "js-interact-v13-canvas-intro": { es: "Partículas que reaccionan al cursor (Canvas 2D y requestAnimationFrame). Pasa el ratón por el recuadro.", ca: "Partícules que reaccionen al cursor (Canvas 2D i requestAnimationFrame). Passa el ratolí pel requadre.", en: "Particles react to the cursor (Canvas 2D and requestAnimationFrame). Move the pointer over the frame." },
 
         // Cards
         "card1-title": { es: "Barcelona", ca: "Barcelona", en: "Barcelona" },
@@ -152,6 +162,7 @@ $(function() {
         }
         localStorage.setItem("userLang", lang);
         updateActiveLink(); // Persistencia del color dorado
+        window.dispatchEvent(new CustomEvent("catalunya-lang-changed", { detail: { lang } }));
     }
 
     // Misión 1: Selección de Elementos y Cambios Visuales
@@ -211,6 +222,39 @@ $(function() {
     // Carga inicial
     const savedLang = localStorage.getItem("userLang") || "es";
     setLanguage(savedLang);
+
+    // Custom audio controls (himne) — index.html loads jquery.js, not script.js
+    const himneAudio = document.getElementById("himne-audio");
+    const playPauseBtn = document.getElementById("play-pause-btn");
+    if (himneAudio && playPauseBtn) {
+        const playIcon = playPauseBtn.querySelector(".fa-play");
+        const pauseIcon = document.createElement("i");
+        pauseIcon.className = "fas fa-pause";
+        playPauseBtn.appendChild(pauseIcon);
+        pauseIcon.style.display = "none";
+
+        $(playPauseBtn).on("click", function () {
+            if (himneAudio.paused) {
+                himneAudio.play().catch(function () {
+                    console.warn("Audio playback failed (missing file, permissions, or browser policy).");
+                });
+                if (playIcon) playIcon.style.display = "none";
+                pauseIcon.style.display = "inline";
+                playPauseBtn.setAttribute("aria-label", "Pausar");
+            } else {
+                himneAudio.pause();
+                if (playIcon) playIcon.style.display = "inline";
+                pauseIcon.style.display = "none";
+                playPauseBtn.setAttribute("aria-label", "Reproducir");
+            }
+        });
+
+        himneAudio.addEventListener("ended", function () {
+            if (playIcon) playIcon.style.display = "inline";
+            pauseIcon.style.display = "none";
+            playPauseBtn.setAttribute("aria-label", "Reproducir");
+        });
+    }
 
 });
 

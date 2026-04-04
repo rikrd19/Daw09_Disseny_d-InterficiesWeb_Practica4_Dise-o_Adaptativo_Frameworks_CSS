@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/interactividad_practica13.css" />
 </head>
 
 <body>
@@ -38,6 +39,7 @@
           <li><a id="nav-home" href="#hero">Inicio</a></li>
           <li><a id="nav-history" href="#historia">Historia</a></li>
           <li><a id="nav-destinations" href="#destinos">Destinos</a></li>
+          <li><a id="nav-datos-pr13" href="#datos-interactivos-pr13">Datos</a></li>
           <li><a id="nav-contact" href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
@@ -173,19 +175,40 @@
         </div>
       </div>
 
-      <!-- Centered Audio Player -->
+      <!-- Audio + project video (same row on wide screens, stacked on narrow) -->
       <div class="audio-player-wrapper">
-        <div class="audio-player-container">
-          <h4 id="audio-title">Himne de Catalunya: Els Segadors</h4>
-          <audio id="himne-audio">
-            <source src="audio/Els-Segadors-Himne-Nacional-de-Catalunya.ogg" type="audio/ogg" />
-            <source src="audio/Els-Segadors-Himne-Nacional-de-Catalunya.mp3" type="audio/mpeg" />
-            Tu navegador no soporta el elemento de audio.
-          </audio>
-          <div class="audio-controls">
-            <button id="play-pause-btn" class="control-btn" aria-label="Reproducir">
-              <i class="fas fa-play"></i>
-            </button>
+        <div class="historia-multimedia-row">
+          <div class="multimedia-audio-col">
+            <div class="audio-player-container">
+              <h4 id="audio-title">Himne de Catalunya: Els Segadors</h4>
+              <audio id="himne-audio" preload="metadata">
+                <source src="audio/Els-Segadors-Himne-Nacional-de-Catalunya.ogg" type="audio/ogg" />
+                <source src="audio/Els-Segadors-Himne-Nacional-de-Catalunya.mp3" type="audio/mpeg" />
+                Tu navegador no soporta el elemento de audio.
+              </audio>
+              <div class="audio-controls">
+                <button type="button" id="play-pause-btn" class="control-btn" aria-label="Reproducir">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="video-inline-container multimedia-video-tile">
+            <h4 id="video-proyecto-title">Vídeo del proyecto</h4>
+            <p id="video-proyecto-desc" class="video-inline-desc">
+              Mismo vídeo optimizado que en la página de integración (WebM + MP4).
+            </p>
+            <video
+              id="proyecto-video-inline"
+              controls
+              poster="images/caratula.png"
+              preload="metadata"
+              class="inline-project-video"
+            >
+              <source src="videos/proyecto_web_final.webm" type="video/webm" />
+              <source src="videos/proyecto_web_final.mp4" type="video/mp4" />
+              Tu navegador no soporta la reproducción de vídeo HTML5.
+            </video>
           </div>
         </div>
       </div>
@@ -250,6 +273,52 @@
         <ul id="lista-favoritos" style="list-style: none; padding: 0;">
           <!-- Los elementos se añadirán dinámicamente aquí -->
         </ul>
+      </div>
+    </section>
+
+    <!-- Práctica 13 — Bloque A: Chart.js (anclajes documentados en README) -->
+    <section id="datos-interactivos-pr13" class="js-interact-v13 js-interact-v13-chart-section"
+      aria-labelledby="js-interact-v13-chart-heading">
+      <div class="container">
+        <div class="section-header js-interact-v13-header">
+          <h2 id="js-interact-v13-chart-heading" class="section-title">
+            Turismo en cifras
+          </h2>
+          <p id="js-interact-v13-chart-intro" class="section-intro">
+            Visualización ilustrativa del interés turístico por mes. Usa los botones para cambiar el tipo de gráfico o el
+            conjunto de datos.
+          </p>
+        </div>
+        <div class="js-interact-v13-chart-panel">
+          <div class="js-interact-v13-chart-actions">
+            <button type="button" id="js-interact-v13-toggle-chart-type" class="btn btn-primary js-interact-v13-btn">
+              Ver gráfico de líneas
+            </button>
+            <button type="button" id="js-interact-v13-cycle-data" class="btn btn-secondary js-interact-v13-btn">
+              Alternar temporada / perfil
+            </button>
+          </div>
+          <div class="js-interact-v13-chart-canvas-wrap">
+            <canvas id="js-interact-v13-chart-canvas" aria-label="Gráfico de turismo mensual"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Práctica 13 — Bloque C: canvas interactivo (partículas + cursor, rAF) -->
+    <section id="canvas-interactivo-pr13" class="js-interact-v13 js-interact-v13-canvas-section"
+      aria-labelledby="js-interact-v13-canvas-heading">
+      <div class="container">
+        <div class="section-header js-interact-v13-canvas-header">
+          <h2 id="js-interact-v13-canvas-heading" class="section-title">Experiencia interactiva</h2>
+          <p id="js-interact-v13-canvas-intro" class="section-intro">
+            Partículas que reaccionan al cursor (Canvas 2D y requestAnimationFrame). Pasa el ratón por el recuadro.
+          </p>
+        </div>
+        <div class="js-interact-v13-particles-shell" role="img"
+          aria-label="Animación de partículas interactiva">
+          <canvas id="js-interact-v13-particles-canvas" width="800" height="240"></canvas>
+        </div>
       </div>
     </section>
 
@@ -478,6 +547,9 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
   <script src="jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+  <script src="js/interactividad_practica13.js"></script>
 </body>
 
 </html>
