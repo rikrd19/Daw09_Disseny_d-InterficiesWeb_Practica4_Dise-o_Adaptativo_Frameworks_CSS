@@ -20,6 +20,7 @@ $(function() {
         "nav-home": { es: "Inicio", ca: "Inici", en: "Home" },
         "nav-history": { es: "Historia", ca: "Història", en: "History" },
         "nav-destinations": { es: "Destinos", ca: "Destins", en: "Destinations" },
+        "nav-datos-pr13": { es: "Datos", ca: "Dades", en: "Insights" },
         "nav-contact": { es: "Contacto", ca: "Contacte", en: "Contact" },
         "dropbtn": { es: "Idioma ▼", ca: "Idioma ▼", en: "Language ▼" },
 
@@ -57,6 +58,11 @@ $(function() {
         // Destinations Section
         "destinations-title": { es: "Explora Nuestros Destinos", ca: "Explora els Nostres Destins", en: "Explore Our Destinations" },
         "destinations-intro": { es: "De la vibrante Barcelona a las playas de la Costa Brava, cada rincón de Catalunya cuenta una historia única.", ca: "De la vibrant Barcelona a les platges de la Costa Brava, cada racó de Catalunya explica una història única.", en: "From vibrant Barcelona to the beaches of Costa Brava, every corner of Catalonia tells a unique story." },
+
+        // Practice 13 — Chart section (Block A)
+        "js-interact-v13-chart-heading": { es: "Turismo en cifras", ca: "Turisme en xifres", en: "Tourism in figures" },
+        "js-interact-v13-chart-intro": { es: "Visualización ilustrativa del interés turístico por mes. Usa los botones para cambiar el tipo de gráfico o el conjunto de datos.", ca: "Visualització il·lustrativa de l'interès turístic per mes. Utilitza els botons per canviar el tipus de gràfic o el conjunt de dades.", en: "Illustrative view of monthly tourism interest. Use the buttons to switch chart type or dataset." },
+        "js-interact-v13-cycle-data": { es: "Alternar temporada / perfil", ca: "Alternar temporada / perfil", en: "Switch season / profile" },
 
         // Cards
         "card1-title": { es: "Barcelona", ca: "Barcelona", en: "Barcelona" },
@@ -152,6 +158,7 @@ $(function() {
         }
         localStorage.setItem("userLang", lang);
         updateActiveLink(); // Persistencia del color dorado
+        window.dispatchEvent(new CustomEvent("catalunya-lang-changed", { detail: { lang } }));
     }
 
     // Misión 1: Selección de Elementos y Cambios Visuales
