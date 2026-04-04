@@ -38,6 +38,8 @@ $(function() {
         "history-quote": { es: '"El corazón catalán late en estos colores"', ca: '"El cor català batega en aquests colors"', en: '"The Catalan heart beats in these colors"' },
         "history-p3": { es: "Ya a mediados del siglo XVI, el historiador valenciano Pere Antoni Beuter narra la leyenda de <em>Wifredo el Velloso</em> y los dedos de sangre en su Crónica General de España. Posteriormente, en un poema de 1644, Francesc Fontanella aludía a las barras:", ca: "Ja a mitjans del segle XVI, l'historiador valencià Pere Antoni Beuter narra la llegenda de <em>Guifré el Pilós</em> i els dits de sang a la seva Crònica General d'Espanya. Posteriorment, en un poema de 1644, Francesc Fontanella al·ludia a les barres:", en: "By the mid-16th century, the Valencian historian Pere Antoni Beuter narrates the legend of <em>Wilfred the Hairy</em> and the bloodied fingers in his General Chronicle of Spain. Later, in a 1644 poem, Francesc Fontanella alluded to the bars:" },
         "audio-title": { es: "Himno de Catalunya: Els Segadors", ca: "Himne de Catalunya: Els Segadors", en: "Anthem of Catalonia: Els Segadors" },
+        "video-proyecto-title": { es: "Vídeo del proyecto", ca: "Vídeo del projecte", en: "Project video" },
+        "video-proyecto-desc": { es: "Mismo vídeo optimizado que en la página de integración (WebM + MP4).", ca: "El mateix vídeo optimitzat que a la pàgina d'integració (WebM + MP4).", en: "Same optimized video as on the integration page (WebM + MP4)." },
 
         // Fact Cards
         "fact-patrimonio-h4": { es: "Patrimonio", ca: "Patrimoni", en: "Heritage" },
@@ -218,6 +220,39 @@ $(function() {
     // Carga inicial
     const savedLang = localStorage.getItem("userLang") || "es";
     setLanguage(savedLang);
+
+    // Custom audio controls (himne) — index.html loads jquery.js, not script.js
+    const himneAudio = document.getElementById("himne-audio");
+    const playPauseBtn = document.getElementById("play-pause-btn");
+    if (himneAudio && playPauseBtn) {
+        const playIcon = playPauseBtn.querySelector(".fa-play");
+        const pauseIcon = document.createElement("i");
+        pauseIcon.className = "fas fa-pause";
+        playPauseBtn.appendChild(pauseIcon);
+        pauseIcon.style.display = "none";
+
+        $(playPauseBtn).on("click", function () {
+            if (himneAudio.paused) {
+                himneAudio.play().catch(function () {
+                    console.warn("Audio playback failed (missing file, permissions, or browser policy).");
+                });
+                if (playIcon) playIcon.style.display = "none";
+                pauseIcon.style.display = "inline";
+                playPauseBtn.setAttribute("aria-label", "Pausar");
+            } else {
+                himneAudio.pause();
+                if (playIcon) playIcon.style.display = "inline";
+                pauseIcon.style.display = "none";
+                playPauseBtn.setAttribute("aria-label", "Reproducir");
+            }
+        });
+
+        himneAudio.addEventListener("ended", function () {
+            if (playIcon) playIcon.style.display = "inline";
+            pauseIcon.style.display = "none";
+            playPauseBtn.setAttribute("aria-label", "Reproducir");
+        });
+    }
 
 });
 

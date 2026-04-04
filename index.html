@@ -175,19 +175,40 @@
         </div>
       </div>
 
-      <!-- Centered Audio Player -->
+      <!-- Audio + project video (same row on wide screens, stacked on narrow) -->
       <div class="audio-player-wrapper">
-        <div class="audio-player-container">
-          <h4 id="audio-title">Himne de Catalunya: Els Segadors</h4>
-          <audio id="himne-audio">
-            <source src="audio/Els-Segadors-Himne-Nacional-de-Catalunya.ogg" type="audio/ogg" />
-            <source src="audio/Els-Segadors-Himne-Nacional-de-Catalunya.mp3" type="audio/mpeg" />
-            Tu navegador no soporta el elemento de audio.
-          </audio>
-          <div class="audio-controls">
-            <button id="play-pause-btn" class="control-btn" aria-label="Reproducir">
-              <i class="fas fa-play"></i>
-            </button>
+        <div class="historia-multimedia-row">
+          <div class="multimedia-audio-col">
+            <div class="audio-player-container">
+              <h4 id="audio-title">Himne de Catalunya: Els Segadors</h4>
+              <audio id="himne-audio" preload="metadata">
+                <source src="audio/Els-Segadors-Himne-Nacional-de-Catalunya.ogg" type="audio/ogg" />
+                <source src="audio/Els-Segadors-Himne-Nacional-de-Catalunya.mp3" type="audio/mpeg" />
+                Tu navegador no soporta el elemento de audio.
+              </audio>
+              <div class="audio-controls">
+                <button type="button" id="play-pause-btn" class="control-btn" aria-label="Reproducir">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="video-inline-container multimedia-video-tile">
+            <h4 id="video-proyecto-title">Vídeo del proyecto</h4>
+            <p id="video-proyecto-desc" class="video-inline-desc">
+              Mismo vídeo optimizado que en la página de integración (WebM + MP4).
+            </p>
+            <video
+              id="proyecto-video-inline"
+              controls
+              poster="images/caratula.png"
+              preload="metadata"
+              class="inline-project-video"
+            >
+              <source src="videos/proyecto_web_final.webm" type="video/webm" />
+              <source src="videos/proyecto_web_final.mp4" type="video/mp4" />
+              Tu navegador no soporta la reproducción de vídeo HTML5.
+            </video>
           </div>
         </div>
       </div>
