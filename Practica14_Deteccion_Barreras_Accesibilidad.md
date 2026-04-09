@@ -1,4 +1,4 @@
-# Práctica 13: Detectando barreras de accesibilidad
+# Práctica 14: Detectando barreras de accesibilidad
 
 **Autor:** Ricardo Ávila  
 **Proyecto:** *Descubre Catalunya* (web de turismo cultural sobre Catalunya)
